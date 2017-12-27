@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <app-cockpit
+      (serverCreated)="onServerAdded($event)"
+      (blueprintCreated)="onBlueprintAdded($event)">
+      <span #contentRef1>Some ng-content</span>
+    </app-cockpit>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let element of serverElements"
+                          [element]="element">
+        <span>Name from outside: {{element.name}}</span>
+      </app-server-element>
+    </div>
+  </div>
+</div>

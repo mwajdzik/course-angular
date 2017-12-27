@@ -1,0 +1,16 @@
+<div class="col-xs-12">
+  <p>Add new servers or blueprints!</p>
+  <label>Server Name</label>
+  <input type="text" class="form-control" [(ngModel)]="newName" #localRef1>
+  <label>Server Content</label>
+  <input type="text" class="form-control" [(ngModel)]="newContent" #localRef2>
+  <br>
+  <div class="col-xs-6">
+    <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+    <button class="btn btn-primary" (click)="onAddBlueprint()">Add Server Blueprint</button>
+  </div>
+  <div class="col-xs-6">
+    <button class="btn btn-primary" (click)="onAddServerWithRefs(localRef1, localRef2)">Add Server with local refs</button>
+    <button class="btn btn-primary" (click)="onAddServerWithViewChild()">Add Server with ViewChild</button>
+  </div>
+</div>

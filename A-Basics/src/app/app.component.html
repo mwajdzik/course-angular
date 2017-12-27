@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <label>
+      <span [ngStyle]="{'background-color': getTextColor()}">Enter some text:</span>
+      <input type="text" [(ngModel)]="text"/>
+    </label>
+  </div>
+
+  <div class="row">
+    <span *ngIf="text">You entered: {{text}}</span>
+  </div>
+
+  <div class="row">
+    <ul>
+      <li *ngFor="let item of list; let i = index">#{{i}} {{item}}</li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <app-lifecycle [value]="title">
+      <p>Included: {{title}}</p>
+    </app-lifecycle>
+  </div>
+
+  <div class="row">
+    <div app-selectors>
+      Loading...
+    </div>
+  </div>
+
+  <div class="row">
+    <app-binding [value]="value">
+    </app-binding>
+  </div>
+</div>
