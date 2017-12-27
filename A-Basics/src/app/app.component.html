@@ -17,6 +17,14 @@
   </div>
 
   <div class="row">
+    <div [ngSwitch]="value">
+      <p *ngSwitchCase="1">Value: 1</p>
+      <p *ngSwitchCase="2">Value: 2</p>
+      <p *ngSwitchDefault>Value: other</p>
+    </div>
+  </div>
+
+  <div class="row">
     <app-lifecycle [value]="title">
       <p>Included: {{title}}</p>
     </app-lifecycle>

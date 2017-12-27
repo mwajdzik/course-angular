@@ -1,16 +1,16 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  text: string = "";
-  list: string[] = ["Maciek", "Madzia"];
-  title: string = "Hello Angular!";
-  value: number = 23;
+  text = '';
+  list: string[] = ['Maciek', 'Madzia'];
+  title = 'Hello Angular!';
+  value = 23;
 
   constructor() {
     console.log('3. AppComponent.constructor');

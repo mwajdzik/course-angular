@@ -78,7 +78,7 @@ Modify .angular-cli.json to include it in styles section.
 
 ## Directives:
 - attribute - interact with the element (ngClass, ngStyle)
-- structural - interact with the current view container and change the structure of the DOM (ngIf, ngFor)   
+- structural - interact with the current view container and change the structure of the DOM (ngIf, ngFor, ngSwitch)   
              - leading *, only one structural directive is allowed on a given element
 
 
