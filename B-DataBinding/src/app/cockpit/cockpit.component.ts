@@ -13,10 +13,10 @@ export class CockpitComponent {
   @Output() private serverCreated = new EventEmitter<{ name: string, content: string }>();
   @Output() private blueprintCreated = new EventEmitter<{ name: string, content: string }>();
 
-  @ViewChild("localRef1") private newNameRef : ElementRef;
-  @ViewChild("localRef2") private newContentRef : ElementRef;
+  @ViewChild('localRef1') private newNameRef : ElementRef;
+  @ViewChild('localRef2') private newContentRef : ElementRef;
 
-  @ContentChild("contentRef1") private contentRef : ElementRef;
+  @ContentChild('contentRef1') private contentRef : ElementRef;
 
   onAddServer() {
     this.serverCreated.emit({name: this.newName, content: this.newContent});

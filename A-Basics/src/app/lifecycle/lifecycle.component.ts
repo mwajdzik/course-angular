@@ -1,7 +1,7 @@
 import {
-  AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges,
-  OnDestroy, OnInit, SimpleChanges
-} from "@angular/core";
+  AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
+  Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'app-lifecycle',
@@ -28,7 +28,7 @@ export class LifecycleComponent implements OnChanges, OnInit, DoCheck,
   ngOnChanges(changes: SimpleChanges): void {
     console.log('102. ngOnChanges called');
 
-    let c: any = changes;
+    const c = changes;
     console.log('\tpreviousValue =', c.value.previousValue);
     console.log('\tcurrentValue =', c.value.currentValue);
   }

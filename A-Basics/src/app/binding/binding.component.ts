@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-binding',
@@ -25,7 +25,7 @@ export class BindingComponent {
 
   @Input() value;
 
-  name: string = "";
+  name = '';
 
   buttonDisabled() {
     return this.value > 100;
