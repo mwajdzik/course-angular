@@ -84,6 +84,8 @@ Modify .angular-cli.json to include it in styles section.
 
 ## Services:
 - depending on the level of definition we can have a single or multiple instances of a servive
+- defining in AppModule we will use the same instance application-wide
+- number of services that are created is determined by number of providers: [OurService]
 
 
 ## Intercomponent communication:
