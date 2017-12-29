@@ -1,16 +1,26 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Recipe} from './recipe.model';
+import {Ingredient} from '../shared/ingredient.model';
+import {ShoppingListService} from '../shopping-list/shopping-list.service';
 
 @Injectable()
 export class RecipeService {
   private recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('Recipe #1', 'This is a simple description', 'https://www.bbcgoodfood.com/sites/default/files/' +
-      'recipe-collections/collection-image/2013/05/frying-pan-pizza-easy-recipe-collection.jpg', null),
-    new Recipe('Recipe #2', 'This is another description', 'https://cdn2.tmbi.com/TOH/Images/Photos/37/300x300/' +
-      'exps25157_FM153592B03_18_12b.jpg', null)
+    new Recipe(
+      'Tasty Schnitzel', 'A super-tasty Schnitzel - just awesome!',
+      'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
+      [new Ingredient('Meat', 1), new Ingredient('French Fries', 20)]
+    ),
+    new Recipe('Big Fat Burger', 'What else you need to say?',
+      'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
+      [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
+    )
   ];
+
+  constructor(private shoppingListService: ShoppingListService) {
+  }
 
   getRecipes() {
     return this.recipes.slice();
@@ -18,5 +28,9 @@ export class RecipeService {
 
   getSelectedRecipeEmitter() {
     return this.recipeSelected;
+  }
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    this.shoppingListService.addIngredients(ingredients);
   }
 }
