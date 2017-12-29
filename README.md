@@ -88,8 +88,8 @@ Modify .angular-cli.json to include it in styles section.
 - number of services that are created is determined by number of providers: [OurService]
 
 
-## Intercomponent communication:
-- add a service with @Output EventEmitter, and in the listening component subscribe to it.
+## Cross-component communication:
+- add a service with @Output EventEmitter, and in the listening component subscribe to it
 
 
 ## Forms:

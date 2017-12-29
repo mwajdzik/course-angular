@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Recipe} from './recipe.model';
 
 @Injectable()
 export class RecipeService {
+  private recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
     new Recipe('Recipe #1', 'This is a simple description', 'https://www.bbcgoodfood.com/sites/default/files/' +
@@ -13,5 +14,9 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getSelectedRecipeEmitter() {
+    return this.recipeSelected;
   }
 }
