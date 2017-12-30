@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-users',
   template: `
-    <p>users works!</p>
+    <h3>Your users</h3>
   `,
   styles: []
 })

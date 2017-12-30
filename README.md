@@ -76,6 +76,10 @@ Modify .angular-cli.json to include it in styles section.
 - Two-Way data binding      <input [(ngModel)]="bind model">            - combination of property and event binding
                                                                           ngModel directive requires FormsModule from @angular/forms
 
+- [sth]="passing expression"
+- sth="passing string only"
+
+
 ## Directives:
 - attribute - interact with the element (ngClass, ngStyle)
 - structural - interact with the current view container and change the structure of the DOM (ngIf, ngFor, ngSwitch)   
