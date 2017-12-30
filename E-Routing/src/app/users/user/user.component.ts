@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {UsersService} from '../users.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-user',
   template: `
-    <h3>User {{user.name}}</h3>
+    <h3>User: {{user.name}}</h3>
     <hr>
     <div class="btn-group" role="group">
       <a [routerLink]="['/users', getPrevUserId()]" class="btn btn-default">
@@ -18,9 +19,10 @@ import {UsersService} from '../users.service';
   `,
   styles: []
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
 
   private user;
+  private paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute, private usersService: UsersService) {
   }
@@ -29,11 +31,15 @@ export class UserComponent implements OnInit {
     this.loadUser(this.route.snapshot.params['id']);
 
     // needed if we reload our component from itself (press" Show next user")
-    this.route.params.subscribe(
+    this.paramsSubscription = this.route.params.subscribe(
       (params: Params) => {
         this.loadUser(params['id']);
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.paramsSubscription.unsubscribe();
   }
 
   loadUser(id: string) {

@@ -6,9 +6,9 @@ import {UsersService} from './users.service';
   template: `
     <h3>Your users</h3>
 
-    <div>
-      <ul>
-        <li *ngFor="let user of users">
+    <div style="margin-top: 40px;">
+      <ul class="list-group">
+        <li *ngFor="let user of users" class="list-group-item">
           <span>{{user.name}}</span>
           <a [routerLink]="[user.id]">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
