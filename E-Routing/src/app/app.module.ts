@@ -8,11 +8,17 @@ import {UsersComponent} from './users/users.component';
 import {ServersComponent} from './servers/servers.component';
 import {UserComponent} from './users/user/user.component';
 import {UsersService} from './users/users.service';
+import {EditUserComponent} from './users/edit-user/edit-user.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'users', component: UsersComponent, children: [{path: ':id', component: UserComponent}]},
-  {path: 'servers', component: ServersComponent}
+  {path: 'servers', component: ServersComponent},
+  {
+    path: 'users', component: UsersComponent, children: [
+      {path: ':id', component: UserComponent},
+      {path: ':id/edit', component: EditUserComponent}
+    ]
+  }
 ];
 
 @NgModule({
@@ -21,7 +27,8 @@ const appRoutes: Routes = [
     HomeComponent,
     UsersComponent,
     ServersComponent,
-    UserComponent
+    UserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
