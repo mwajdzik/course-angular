@@ -96,6 +96,12 @@ Modify .angular-cli.json to include it in styles section.
 - add a service with @Output EventEmitter, and in the listening component subscribe to it
 
 
+## Routing:
+- app.modules.ts - RouterModule.forRoot(appRoutes)
+- <router-outlet></router-outlet>
+- children require their own <router-outlet></router-outlet>
+
+
 ## Forms:
 - template driven approach
 
