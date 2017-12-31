@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-servers',
@@ -11,13 +12,38 @@ import {ActivatedRoute, Router} from '@angular/router';
   `,
   styles: []
 })
-export class ServersComponent {
+export class ServersComponent implements OnInit, OnDestroy {
+
+  private queryParamsSubscription: Subscription;
+  private fragmentSubscription: Subscription;
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   onReload() {
     // relative route (no '/servers')
-    this.router.navigate(['servers'], {relativeTo: this.route});
+    this.router.navigate(['servers'], {
+      relativeTo: this.route.root,
+      queryParams: {allowEdit: 0},
+      fragment: 'loading'
+    });
+  }
+
+  ngOnInit() {
+    console.log('QUERY PARAMS when component created: ' + JSON.stringify(this.route.snapshot.queryParams));
+    console.log('FRAGMENT when component created: ' + this.route.snapshot.fragment);
+
+    this.queryParamsSubscription = this.route.queryParams.subscribe((queryParams: Params) => {
+      console.log('QUERY PARAMS when reloading: ' + JSON.stringify(queryParams));
+    });
+
+    this.fragmentSubscription = this.route.fragment.subscribe((fragment: string) => {
+      console.log('FRAGMENT when reloading: ' + fragment);
+    });
+  }
+
+  ngOnDestroy() {
+    this.queryParamsSubscription.unsubscribe();
+    this.fragmentSubscription.unsubscribe();
   }
 }

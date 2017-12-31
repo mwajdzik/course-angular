@@ -10,7 +10,7 @@ import {UsersService} from './users.service';
       <ul class="list-group">
         <li *ngFor="let user of users" class="list-group-item">
           <span>{{user.name}}</span>
-          <a [routerLink]="[user.id]">
+          <a [routerLink]="[user.id]" [queryParams]="{allowEdit: '1'}" fragment="loading">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
           </a>
         </li>
