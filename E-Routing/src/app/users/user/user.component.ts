@@ -13,7 +13,7 @@ import {Subscription} from 'rxjs/Subscription';
       quod! Aliquam aspernatur cupiditate dolorem eligendi, itaque molestiae nam optio quae sint tempore unde
       veritatis?</p>
     <div>
-      <button class="btn btn-primary" (click)="onEdit()" [disabled]="!editAvailable">Edit</button>
+      <button class="btn btn-primary" (click)="onEdit()" [disabled]="!allowEdit">Edit</button>
     </div>
     <hr>
     <div class="btn-group" role="group">
@@ -30,7 +30,7 @@ import {Subscription} from 'rxjs/Subscription';
 export class UserComponent implements OnInit, OnDestroy {
 
   private user;
-  private editAvailable;
+  private allowEdit = false;
   private paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute,
@@ -39,7 +39,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.editAvailable = this.route.snapshot.queryParams['allowEdit'] === 'true';
+    this.allowEdit = this.route.snapshot.queryParams['allowEdit'] === 'true';
     this.loadUser(this.route.snapshot.params['id']);
 
     // needed if we reload our component from itself (press" Show next user")
@@ -48,7 +48,7 @@ export class UserComponent implements OnInit, OnDestroy {
     });
 
     this.route.queryParams.subscribe((queryParams: Params) => {
-      this.editAvailable = queryParams['allowEdit'] === 'true';
+      this.allowEdit = queryParams['allowEdit'] === 'true';
     });
   }
 
