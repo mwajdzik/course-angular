@@ -1,11 +1,21 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-page-not-found',
   template: `
-    <h3>This page was not found...</h3>
+    <h3>{{message}}</h3>
   `,
   styles: []
 })
-export class PageNotFoundComponent {
+export class PageNotFoundComponent implements OnInit {
+
+  message = 'This page was not found...';
+
+  constructor(private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    this.message = this.route.snapshot.data['message'] || this.message;
+  }
 }

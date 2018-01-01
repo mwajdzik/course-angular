@@ -19,7 +19,7 @@ const appRoutes: Routes = [
       {path: ':id/edit', component: EditUserComponent, canDeactivate: [CanDeactivateGuardService]}
     ]
   },
-  {path: '**', component: PageNotFoundComponent}
+  {path: '**', component: PageNotFoundComponent, data: {message: 'Overridden: Page Not Found!'}}
 ];
 
 @NgModule({
