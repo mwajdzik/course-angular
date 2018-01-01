@@ -10,6 +10,8 @@ import {UsersService} from './users/users.service';
 import {EditUserComponent} from './users/edit-user/edit-user.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
+import {AuthGuardService} from './auth-guard.service';
+import {AuthService} from './auth.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import {AppRoutingModule} from './app-routing.module';
     // RouterModule.forRoot(appRoutes) - moved to a separate file
     AppRoutingModule
   ],
-  providers: [UsersService],
+  providers: [UsersService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
