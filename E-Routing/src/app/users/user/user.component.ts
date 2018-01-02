@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Data, Params, Router} from '@angular/router';
 import {UsersService} from '../users.service';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -40,20 +40,26 @@ export class UserComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.allowEdit = this.route.snapshot.queryParams['allowEdit'] === 'true';
-    this.loadUser(this.route.snapshot.params['id']);
 
     // needed if we reload our component from itself (press" Show next user")
-    this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-      this.loadUser(params['id']);
-    });
-
     this.route.queryParams.subscribe((queryParams: Params) => {
       this.allowEdit = queryParams['allowEdit'] === 'true';
     });
+
+    // with Resolver approach
+    this.route.data.subscribe((data: Data) => {
+      this.user = data['user'];
+    });
+
+    // without Resolver
+    // this.loadUser(this.route.snapshot.params['id']);
+    // this.paramsSubscription = this.route.params.subscribe((params: Params) => {
+    //   this.loadUser(params['id']);
+    // });
   }
 
   ngOnDestroy() {
-    this.paramsSubscription.unsubscribe();
+    // this.paramsSubscription.unsubscribe();
   }
 
   loadUser(id: string) {
