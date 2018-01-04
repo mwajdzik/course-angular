@@ -109,3 +109,8 @@ Modify .angular-cli.json to include it in styles section.
 ## Testing:
 https://angular.io/docs/ts/latest/guide/testing.html
 https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
+
+
+## Material Design
+https://material.angular.io/
+npm install --save @angular/material @angular/cdk
