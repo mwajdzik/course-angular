@@ -44,6 +44,11 @@ npm install --save bootstrap
 Modify .angular-cli.json to include it in styles section.
 
 
+## Lodash
+npm install --save lodash
+import * as _ from "lodash"; 
+ 
+
 ## Lifecycle:
 
 - index.html loads main.ts
