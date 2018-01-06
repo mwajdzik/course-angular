@@ -119,3 +119,12 @@ https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with
 ## Material Design
 https://material.angular.io/
 npm install --save @angular/material @angular/cdk
+
+
+## Deployment
+- ng build --prod --aot 
+- example.com/my-app      <base href="/my-app">
+- return index.html in case of 404 errors
+- AWS S3 hosting https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
+
+ 
