@@ -6,19 +6,22 @@ import {FormsModule} from '@angular/forms';
 import {LifecycleComponent} from './lifecycle/lifecycle.component';
 import {SelectorsComponent} from './selectors/selectors.component';
 import {BindingComponent} from './binding/binding.component';
+import {ObservablesComponent} from './observables/observables.component';
+import {UsersService} from './observables/users.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LifecycleComponent,
     SelectorsComponent,
-    BindingComponent
+    BindingComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
