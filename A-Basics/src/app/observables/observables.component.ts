@@ -15,8 +15,8 @@ import {UsersService} from './users.service';
   styles: []
 })
 export class ObservablesComponent implements OnInit, OnDestroy {
-  private numbersObservable;
-  private myObservable;
+  private myObservableSub;
+  private numbersObservableSub;
 
   constructor(private userService: UsersService) {
   }
@@ -30,20 +30,24 @@ export class ObservablesComponent implements OnInit, OnDestroy {
         console.log('user ' + id + ' activated');
       }
     );
+
+    setTimeout(() => {
+      this.numbersObservableSub.unsubscribe();
+    }, 5000);
   }
 
   ngOnDestroy() {
-    this.myObservable.unsubscribe();
-    this.numbersObservable.unsubscribe();
+    this.myObservableSub.unsubscribe();
+    this.numbersObservableSub.unsubscribe();
   }
 
   private createNumbersObservable() {
-    this.numbersObservable = Observable.interval(1000)
+    const numbersObservable = Observable.interval(1000)
       .map((number: number) => {
         return number * 2;
       });
 
-    this.numbersObservable.subscribe(
+    this.numbersObservableSub = numbersObservable.subscribe(
       (number: number) => {
         console.log(number);
       },
@@ -77,7 +81,7 @@ export class ObservablesComponent implements OnInit, OnDestroy {
       }
     );
 
-    myObservable.subscribe(
+    this.myObservableSub = myObservable.subscribe(
       (data: string) => {
         console.log(data);
       },

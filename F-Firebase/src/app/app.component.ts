@@ -8,9 +8,6 @@ import {AngularFirestore} from 'angularfire2/firestore';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'JavaSampleApproach';
-  description = 'Angular4-Firebase Demo';
-
   itemValue = '';
   items: Observable<any[]>;
 
