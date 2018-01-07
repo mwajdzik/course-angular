@@ -4,6 +4,7 @@ import {Headers, Http, Response} from '@angular/http';
 @Component({
   selector: 'app-http',
   template: `
+    <h2>Old Http Module</h2>
     <div>
       <button class="btn btn-primary" (click)="onGetAll()">Get All</button>
       <button class="btn btn-primary" (click)="onGetOne()">Get One</button>
