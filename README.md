@@ -41,7 +41,8 @@ ng test
 
 npm install --save bootstrap
 
-Modify .angular-cli.json to include it in styles section.
+Modify .angular-cli.json to include it in styles section
+    "../node_modules/bootstrap/dist/css/bootstrap.css"
 
 
 ## Lodash
@@ -127,4 +128,7 @@ npm install --save @angular/material @angular/cdk
 - return index.html in case of 404 errors
 - AWS S3 hosting https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
 
- 
+
+## Firebase
+- https://github.com/angular/angularfire2/blob/master/docs/install-and-setup.md
+- npm install angularfire2 firebase --save
