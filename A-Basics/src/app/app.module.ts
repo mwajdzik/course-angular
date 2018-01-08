@@ -13,6 +13,7 @@ import {UsersService} from './observables/users.service';
 import {HttpComponent} from './http/http.component';
 import {HttpClientComponent} from './http/http-client.component';
 import {AuthInterceptor} from './http/auth.interceptor';
+import {LoggingInterceptor} from './http/logging.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {AuthInterceptor} from './http/auth.interceptor';
   ],
   providers: [
     UsersService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
