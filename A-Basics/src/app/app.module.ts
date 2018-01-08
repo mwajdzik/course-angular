@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
@@ -12,6 +12,7 @@ import {ObservablesComponent} from './observables/observables.component';
 import {UsersService} from './observables/users.service';
 import {HttpComponent} from './http/http.component';
 import {HttpClientComponent} from './http/http-client.component';
+import {AuthInterceptor} from './http/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import {HttpClientComponent} from './http/http-client.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UsersService],
+  providers: [
+    UsersService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
