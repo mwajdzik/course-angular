@@ -47,7 +47,7 @@ Modify .angular-cli.json to include it in styles section
 
 ## Lodash
 npm install --save lodash
-import * as _ from "lodash"; 
+import * as _ from 'lodash'; 
  
 
 ## Lifecycle:
