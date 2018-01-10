@@ -111,6 +111,10 @@ import * as _ from 'lodash';
 ## Forms:
 - template driven approach - Angular infers the Form object from the DOM
 - reactive - Form is created programmatically and synchronized with the DOM
+    - custom validators
+    - async validator
+    - dynamic form
+    - reacting to change (subscriptions)
 - https://angular.io/api/forms/Validators
 
 

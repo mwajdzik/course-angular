@@ -7,6 +7,16 @@
       <input type="text" class="form-control"
              id="data-username"
              formControlName="name">
+
+      <div *ngIf="!myForm.get('userData.name').valid" class="help-block">
+        <span *ngIf="myForm.get('userData.name').errors['required']">This field is required</span>
+      </div>
+
+      <button class="btn btn-default"
+              style="margin-top: 5px;"
+              type="button" (click)="onSuggest()">
+        Suggest
+      </button>
     </div>
 
     <div class="form-group">
@@ -15,7 +25,7 @@
              id="data-email"
              formControlName="email">
 
-      <div *ngIf="!myForm.controls.userData.controls.email.valid">
+      <div *ngIf="!myForm.get('userData.email').valid" class="help-block">
         Please provide a valid email.
       </div>
     </div>
@@ -50,7 +60,7 @@
   </button>
 
   <button type="button" class="btn btn-default"
-          (click)="myForm.reset()">Reset
+          (click)="onReset()">Reset
   </button>
 
   <button type="submit" class="btn btn-primary"

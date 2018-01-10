@@ -9,46 +9,70 @@ import {Observable} from 'rxjs/Observable';
 export class DataDrivenComponent implements OnInit {
 
   myForm: FormGroup;
-
-  gender = [
-    'female',
-    'male'
-  ];
+  gender = ['female', 'male'];
+  private forbiddenEmail = 'amw061@gmail.com';
 
   constructor() {
   }
 
-  static emailValidator(control: FormControl): { [s: string]: boolean } {
+  static myEmailValidator(control: FormControl): { [s: string]: boolean } {
     if (control.value && !control.value.match(/[\w]+@[\w]+\.[\w]{2,3}/)) {
       return {invalid: true};
     }
 
-    return null;
+    return null;  // valid
   }
 
   ngOnInit() {
     this.myForm = new FormGroup({
       userData: new FormGroup({
-        name: new FormControl('Maciek', Validators.required),
-        email: new FormControl('', [
+        name: new FormControl(null, Validators.required),
+        email: new FormControl(null, [
           Validators.required,
-          DataDrivenComponent.emailValidator,
+          Validators.email,
+          DataDrivenComponent.myEmailValidator,
           Validators.pattern(/[\w]+@[\w]+\.[\w]{2,3}/)
+        ], [
+          this.forbiddenEmailsValidator.bind(this)
         ]),
       }),
       password: new FormControl('', Validators.required),
-      gender: new FormControl('male'),
+      gender: new FormControl(null),
       hobbies: new FormArray([
-        new FormControl('Cooking', Validators.required, this.asyncValidator)
+        new FormControl(null, Validators.required),
+        new FormControl(null, Validators.required)
       ])
     });
 
     this.myForm.valueChanges.subscribe(
       (data: any) => console.log(data)
     );
+
     this.myForm.statusChanges.subscribe(
       (data: any) => console.log(data)
     );
+
+    this.myForm.get('gender').valueChanges.subscribe(
+      (data: any) => console.log('Gender changed', data)
+    );
+
+    this.myForm.setValue({
+      userData: {
+        name: 'Maciek',
+        email: 'amw061@gmail.com'
+      },
+      password: '123',
+      gender: 'male',
+      hobbies: ['Coding', 'Running']
+    });
+  }
+
+  onSuggest() {
+    this.myForm.patchValue({
+      userData: {
+        name: 'SuperUser'
+      }
+    });
   }
 
   onSubmit() {
@@ -57,16 +81,22 @@ export class DataDrivenComponent implements OnInit {
     console.log(this.myForm);
   }
 
-  addHobby() {
-    (<FormArray>this.myForm.controls['hobbies'])
-      .push(new FormControl('', Validators.required, this.asyncValidator));
+  onReset() {
+    this.myForm.reset({
+      gender: 'female'
+    });
   }
 
-  asyncValidator(control: FormControl): Promise<any> | Observable<any> {
+  addHobby() {
+    (<FormArray>this.myForm.get('hobbies'))
+      .push(new FormControl('', Validators.required));
+  }
+
+  forbiddenEmailsValidator(control: FormControl): Promise<any> | Observable<any> {
     return new Promise<any>(
       (resolve, reject) => {
         setTimeout(() => {
-          if (control.value === 'Example') {
+          if (control.value === this.forbiddenEmail) {
             resolve({invalid: true});
           } else {
             resolve(null);
