@@ -76,11 +76,11 @@ import * as _ from 'lodash';
 
 ## Data binding methods:
 
-- String interpolation      {{expression resolving to string}}
-- Property binding          <button [disabled]="expression">
-- Event binding             <button (click)="onClick($event)">
-- Two-Way data binding      <input [(ngModel)]="bind model">            - combination of property and event binding
-                                                                          ngModel directive requires FormsModule from @angular/forms
+- String interpolation      ```{{expression resolving to string}}```
+- Property binding          ```<button [disabled]="expression">```
+- Event binding             ```<button (click)="onClick($event)">```
+- Two-Way data binding      ```<input [(ngModel)]="bind model">``` - combination of property and event binding
+- ngModel directive requires FormsModule from @angular/forms
 
 - [sth]="passing expression"
 - sth="passing string only"
@@ -104,8 +104,8 @@ import * as _ from 'lodash';
 
 ## Routing:
 - app.modules.ts - RouterModule.forRoot(appRoutes)
-- <router-outlet></router-outlet>
-- children require their own <router-outlet></router-outlet>
+- ```<router-outlet></router-outlet>```
+- children require their own ```<router-outlet></router-outlet>```
 
 
 ## Forms:
@@ -130,7 +130,7 @@ npm install --save @angular/material @angular/cdk
 
 ## Deployment
 - ng build --prod --aot 
-- example.com/my-app      <base href="/my-app">
+- example.com/my-app      ```<base href="/my-app">```
 - return index.html in case of 404 errors
 - AWS S3 hosting https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
 
