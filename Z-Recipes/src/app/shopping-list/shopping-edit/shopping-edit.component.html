@@ -22,8 +22,9 @@
           </button>
 
           <button class="btn btn-danger"
+                  *ngIf="editMode"
                   (click)="onDelete()"
-                  type="button">Delete Item
+                  type="button">Delete
           </button>
 
           <button class="btn btn-primary"
