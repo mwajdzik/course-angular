@@ -91,6 +91,10 @@ import * as _ from 'lodash';
 - structural - interact with the current view container and change the structure of the DOM (ngIf, ngFor, ngSwitch)   
              - leading *, only one structural directive is allowed on a given element
 
+## Pipes
+- used to transform a value
+- https://angular.io/api?type=pipe
+- ``` {{ username | uppercase }} ```
 
 ## Services:
 - depending on the level of definition we can have a single or multiple instances of a servive
@@ -103,7 +107,7 @@ import * as _ from 'lodash';
 
 
 ## Routing:
-- app.modules.ts - RouterModule.forRoot(appRoutes)
+- app.modules.ts - ```RouterModule.forRoot(appRoutes)```
 - ```<router-outlet></router-outlet>```
 - children require their own ```<router-outlet></router-outlet>```
 
@@ -119,8 +123,9 @@ import * as _ from 'lodash';
 
 
 ## Testing:
-https://angular.io/docs/ts/latest/guide/testing.html
-https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
+- ```ng test```
+- https://angular.io/docs/ts/latest/guide/testing.html
+- https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
 
 
 ## Material Design

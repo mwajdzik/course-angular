@@ -9,6 +9,7 @@ import {UsersService} from './users.service';
   selector: 'app-observables',
   template: `
     <div>
+      <h2>Observables</h2>
       <button class="btn btn-primary" (click)="onActivate()">Activate</button>
     </div>
   `,

@@ -1,0 +1,9 @@
+<h2>Pipes</h2>
+
+<ul class="list-group">
+  <li *ngFor="let s of servers" class="list-group-item">
+    <span class="badge">{{s.status}}</span>
+    <strong>{{s.name | uppercase}}</strong> |
+    <span>{{s.started | date:'fullDate' | uppercase}}</span>
+  </li>
+</ul>
