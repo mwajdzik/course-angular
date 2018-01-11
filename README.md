@@ -95,6 +95,7 @@ import * as _ from 'lodash';
 - used to transform a value
 - https://angular.io/api?type=pipe
 - ``` {{ username | uppercase }} ```
+- async pipe for Promises
 
 ## Services:
 - depending on the level of definition we can have a single or multiple instances of a servive
