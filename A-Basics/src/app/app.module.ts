@@ -15,6 +15,8 @@ import {HttpClientComponent} from './http/http-client.component';
 import {AuthInterceptor} from './http/auth.interceptor';
 import {LoggingInterceptor} from './http/logging.interceptor';
 import { PipesComponent } from './pipes/pipes.component';
+import { ShortenPipe } from './pipes/shorten.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PipesComponent } from './pipes/pipes.component';
     ObservablesComponent,
     HttpComponent,
     HttpClientComponent,
-    PipesComponent
+    PipesComponent,
+    ShortenPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

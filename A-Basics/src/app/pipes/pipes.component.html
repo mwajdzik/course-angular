@@ -1,9 +1,14 @@
 <h2>Pipes</h2>
 
+<div style="margin-bottom: 10px;">
+  Filter by:
+  <input type="text" [(ngModel)]="filterString">
+</div>
+
 <ul class="list-group">
-  <li *ngFor="let s of servers" class="list-group-item">
+  <li *ngFor="let s of servers | filter:filterString:'name'" class="list-group-item">
     <span class="badge">{{s.status}}</span>
-    <strong>{{s.name | uppercase}}</strong> |
+    <strong>{{s.name | uppercase | shorten:3}}</strong> |
     <span>{{s.started | date:'fullDate' | uppercase}}</span>
   </li>
 </ul>

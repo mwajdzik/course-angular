@@ -7,7 +7,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PipesComponent implements OnInit {
 
+  filterString = '';
+
   servers = [
+    {name: 'API', status: 'UP', started: new Date()},
+    {name: 'API', status: 'DOWN', started: new Date()},
     {name: 'API', status: 'UP', started: new Date()},
     {name: 'DB', status: 'DOWN', started: new Date()}
   ];
