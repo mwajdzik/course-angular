@@ -8,15 +8,20 @@ import {AngularFirestore} from 'angularfire2/firestore';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   itemValue = '';
   items: Observable<any[]>;
 
   constructor(private db: AngularFirestore) {
-    this.items = db.collection('items').valueChanges();
+    this.items = this.getCollection().valueChanges();
   }
 
   onSubmit() {
-    this.db.collection('items').add({content: this.itemValue});
+    this.getCollection().add({content: this.itemValue});
     this.itemValue = '';
+  }
+
+  private getCollection() {
+    return this.db.collection('angular-firebase-items');
   }
 }

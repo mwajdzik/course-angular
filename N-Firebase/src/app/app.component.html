@@ -1,8 +1,9 @@
-<div class="container-fluid">
-  <div style="width: 300px;">
+<div class="container">
+
+  <div class="row">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="item">Item</label>
+        <label for="item">Add a New Item</label>
         <input type="text" id="item" class="form-control"
                placeholder="Enter content..." name="item"
                required [(ngModel)]="itemValue">
@@ -13,11 +14,18 @@
     </form>
   </div>
 
-  <h2>Content from Firebase:</h2>
+  <hr>
 
-  <div class="col-md-3">
-    <pre *ngFor="let item of items | async">
-      {{item.content}}
-    </pre>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Content from Firebase
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of items | async">
+          {{item.content}}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
