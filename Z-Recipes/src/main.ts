@@ -8,5 +8,8 @@ if (environment.production) {
   enableProdMode();
 }
 
+declare var firebase: any;
+firebase.initializeApp(environment.firebase);
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
