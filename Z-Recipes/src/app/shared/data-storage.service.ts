@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../recipes/recipe.service';
 import {environment} from '../../environments/environment';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable()
 export class DataStorageService {
@@ -9,14 +10,19 @@ export class DataStorageService {
   private config = environment.firebase;
 
   constructor(private httpClient: HttpClient,
+              private authService: AuthService,
               private recipeService: RecipeService) {
   }
 
-  storeRecipes() {
-    return this.httpClient.put(this.config.databaseURL + '/angular-recipes-items.json', this.recipeService.getRecipes());
+  private getRecipeUrl() {
+    return this.config.databaseURL + '/angular-recipes-items.json?auth=' + this.authService.getToken();
   }
 
-  getRecipes() {
-    return this.httpClient.get(this.config.databaseURL + '/angular-recipes-items.json');
+  public storeRecipes() {
+    return this.httpClient.put(this.getRecipeUrl(), this.recipeService.getRecipes());
+  }
+
+  public getRecipes() {
+    return this.httpClient.get(this.getRecipeUrl());
   }
 }

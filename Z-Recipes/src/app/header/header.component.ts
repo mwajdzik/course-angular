@@ -3,6 +3,7 @@ import {DataStorageService} from '../shared/data-storage.service';
 import {HttpResponse} from '@angular/common/http';
 import {RecipeService} from '../recipes/recipe.service';
 import {Recipe} from '../recipes/recipe.model';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import {Recipe} from '../recipes/recipe.model';
 export class HeaderComponent {
 
   constructor(private dataStorageService: DataStorageService,
+              private authService: AuthService,
               private recipeService: RecipeService) {
   }
 
@@ -27,5 +29,9 @@ export class HeaderComponent {
       .subscribe((data: Recipe[]) => {
         this.recipeService.setRecipes(data);
       });
+  }
+
+  onLogout() {
+    this.authService.signoutUser();
   }
 }
