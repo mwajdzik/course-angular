@@ -27,8 +27,9 @@ export class AuthService {
   }
 
   signoutUser() {
-    firebase.auth().signOut();
     this.token = null;
+    firebase.auth().signOut();
+    this.router.navigate(['/']);
   }
 
   getToken() {
