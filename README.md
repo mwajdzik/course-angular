@@ -97,6 +97,7 @@ import * as _ from 'lodash';
 - ``` {{ username | uppercase }} ```
 - async pipe for Promises
 
+
 ## Services:
 - depending on the level of definition we can have a single or multiple instances of a servive
 - defining in AppModule we will use the same instance application-wide
@@ -144,3 +145,8 @@ npm install --save @angular/material @angular/cdk
 ## Firebase
 - https://github.com/angular/angularfire2/blob/master/docs/install-and-setup.md
 - npm install angularfire2 firebase --save
+
+
+## Modules
+- allow to lazy load modules
+- shared module to keep common elements
