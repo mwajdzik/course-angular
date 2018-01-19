@@ -160,3 +160,10 @@ npm install --save @angular/material @angular/cdk
 - templates get checked during development
 - smaller file size as unused features can be stripped out and the compiler itself isn't shipped
 
+
+## Redux - ngRx library for Angular that provides Redux functionality
+- Store keeps the Application State
+- Services and Components have access to the Store, they can still communicate with each other
+- to modify the state we dispatch Actions (eg. save a post)
+- Actions are sent to Reducers are functions which take Actions and payload as input and prepare a new immutable state
+
