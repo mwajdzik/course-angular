@@ -74,7 +74,7 @@
         <div class="col-xs-12">
           <ul class="list-group" formArrayName="ingredients">
             <div class="row"
-                 *ngFor="let ingredient of recipeForm.get('ingredients').controls; let i = index">
+                 *ngFor="let ingredient of recipeForm.get('ingredients').get('controls'); let i = index">
               <div formGroupName="{{i}}">
                 <div class="col-sm-5">
                   <input

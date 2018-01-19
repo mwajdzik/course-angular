@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './core/home/home.component';
+import {NoPreloading} from '@angular/router/src/router_preloader';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -8,9 +9,14 @@ const appRoutes: Routes = [
   {path: 'shopping-list', loadChildren: './shopping-list/shopping-list.module#ShoppingListModule'}    // lazy loading
 ];
 
+const config = {
+  useHash: false,
+  preloadingStrategy: NoPreloading
+};
+
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, {useHash: false})
+    RouterModule.forRoot(appRoutes, config)
   ],
   exports: [RouterModule]
 })

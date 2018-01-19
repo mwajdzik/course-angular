@@ -5,16 +5,9 @@ import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-
-  private selectedFeature = 'recipe';
-
-  selectFeature(feature: string) {
-    this.selectedFeature = feature;
-  }
 
   ngOnInit() {
     firebase.initializeApp(environment.firebase);

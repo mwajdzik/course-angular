@@ -149,4 +149,14 @@ npm install --save @angular/material @angular/cdk
 
 ## Modules
 - allow to lazy load modules
+- options defined on route: NoPreloading, PreloadAllModules, or define own PreloadingStrategy
 - shared module to keep common elements
+- CanLoad guard can be used to revoke access to a route and avoid loading unnecessary files
+
+
+## Ahead Of Time Compilation (oposite to JIT)
+- what's compiled is HTML which is turned into JS
+- faster startup since parsing and compilation doesn't happen in Browser
+- templates get checked during development
+- smaller file size as unused features can be stripped out and the compiler itself isn't shipped
+
