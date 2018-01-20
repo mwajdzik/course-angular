@@ -4,10 +4,6 @@ import {
   START_EDIT_INGREDIENT, STOP_EDIT_INGREDIENT, UPDATE_INGREDIENT
 } from './shopping-list.actions';
 
-export interface AppState {
-  shoppingList: ShoppingListState;
-}
-
 export interface ShoppingListState {
   ingredients: Ingredient[];
   editedIngredient: Ingredient;

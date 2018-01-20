@@ -4,7 +4,7 @@ import {NgForm} from '@angular/forms';
 import {Subscription} from 'rxjs/Subscription';
 import {Store} from '@ngrx/store';
 import {AddIngredient, DeleteIngredient, StopEditIngredient, UpdateIngredient} from '../store/shopping-list.actions';
-import {AppState} from '../store/shopping-list.reducers';
+import {AppState} from '../../store/app.reducers';
 
 @Component({
   selector: 'app-shopping-edit',
