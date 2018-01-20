@@ -13,7 +13,6 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   @Output() editingDone = new EventEmitter<void>();
   @ViewChild('f') formRef: NgForm;
-
   private subscription: Subscription;
   private index: number;
   editMode = false;
@@ -61,5 +60,6 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   onDelete() {
     this.shoppingListService.removeIngredient(this.index);
+    this.resetForm();
   }
 }
