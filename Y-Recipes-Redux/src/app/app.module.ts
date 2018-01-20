@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -13,6 +13,7 @@ import {AuthModule} from './auth/auth.module';
 import {CoreModule} from './core/core.module';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './store/app.reducers';
+import {AuthInterceptor} from './shared/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {reducers} from './store/app.reducers';
     AuthService,
     AuthGuardService,
     RecipeService,
-    DataStorageService
+    DataStorageService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

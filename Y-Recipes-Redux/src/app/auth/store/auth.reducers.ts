@@ -23,7 +23,7 @@ export function authReducer(state = initialState, action: AuthActions) {
       return {
         ...state,
         token: null,
-        authenticated: true
+        authenticated: false
       };
 
     case SET_TOKEN:
