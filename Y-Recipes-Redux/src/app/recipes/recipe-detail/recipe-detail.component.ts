@@ -3,6 +3,9 @@ import {Recipe} from '../recipe.model';
 import {RecipeService} from '../recipe.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
+import {Store} from '@ngrx/store';
+import {AddIngredients} from '../../shopping-list/store/shopping-list.actions';
+import {AppState} from '../../shopping-list/store/shopping-list.reducers';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -16,6 +19,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(private recipeService: RecipeService,
+              private store: Store<AppState>,
               private router: Router,
               private route: ActivatedRoute) {
   }
@@ -32,7 +36,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   }
 
   onAddToShoppingList() {
-    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+    this.store.dispatch(new AddIngredients(this.recipe.ingredients));
   }
 
   onDeleteRecipe() {

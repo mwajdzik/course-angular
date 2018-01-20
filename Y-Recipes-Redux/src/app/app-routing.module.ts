@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {NoPreloading, RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './core/home/home.component';
-import {NoPreloading} from '@angular/router/src/router_preloader';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
