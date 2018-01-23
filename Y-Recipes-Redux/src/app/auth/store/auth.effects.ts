@@ -1,7 +1,7 @@
 import {Actions, Effect} from '@ngrx/effects';
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {LOGOUT, SET_TOKEN, SIGN_IN, SIGN_UP, TRY_SIGN_IN, TRY_SIGN_UP, TrySignIn, TrySignUp} from './store/auth.actions';
+import {LOGOUT, SET_TOKEN, SIGN_IN, SIGN_UP, TRY_SIGN_IN, TRY_SIGN_UP, TrySignIn, TrySignUp} from './auth.actions';
 import {fromPromise} from 'rxjs/observable/fromPromise';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';

@@ -1,11 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Recipe} from '../recipe.model';
-import {RecipeService} from '../recipe.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Store} from '@ngrx/store';
 import {AddIngredients} from '../../shopping-list/store/shopping-list.actions';
-import {AppState} from '../../store/app.reducers';
+import {DeleteRecipe} from '../store/recipe.actions';
+import {RecipeFeatureState} from '../store/recipe.reducers';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -14,12 +14,11 @@ import {AppState} from '../../store/app.reducers';
 })
 export class RecipeDetailComponent implements OnInit, OnDestroy {
 
-  public recipe: Recipe;
   private id: number;
   private subscription: Subscription;
+  public recipe: Recipe;
 
-  constructor(private recipeService: RecipeService,
-              private store: Store<AppState>,
+  constructor(private store: Store<RecipeFeatureState>,
               private router: Router,
               private route: ActivatedRoute) {
   }
@@ -27,7 +26,10 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
-      this.recipe = this.recipeService.getRecipe(this.id);
+
+      this.store.select('recipe').subscribe((recipeState) => {
+        this.recipe = recipeState.recipes[this.id];
+      });
     });
   }
 
@@ -40,7 +42,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   }
 
   onDeleteRecipe() {
-    this.recipeService.deleteRecipe(this.id);
-    this.router.navigate(['../']);
+    this.store.dispatch(new DeleteRecipe(this.id));
+    this.router.navigate(['/recipes']);
   }
 }

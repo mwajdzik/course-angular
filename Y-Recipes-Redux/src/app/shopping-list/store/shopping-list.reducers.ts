@@ -1,7 +1,6 @@
 import {Ingredient} from '../../shared/ingredient.model';
 import {
-  ADD_INGREDIENT, ADD_INGREDIENTS, DELETE_INGREDIENT, ShoppingListActions,
-  START_EDIT_INGREDIENT, STOP_EDIT_INGREDIENT, UPDATE_INGREDIENT
+  ADD_INGREDIENT, ADD_INGREDIENTS, DELETE_INGREDIENT, ShoppingListActions, START_EDIT_INGREDIENT, STOP_EDIT_INGREDIENT, UPDATE_INGREDIENT
 } from './shopping-list.actions';
 
 export interface ShoppingListState {
