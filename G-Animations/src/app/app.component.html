@@ -8,7 +8,7 @@
       <div [@divState]="state"
            style="width: 100px; height: 100px;"></div>
       <br>
-      <div [@divState]="wildState"
+      <div [@wildState]="wildState"
            style="width: 100px; height: 100px;"></div>
     </div>
   </div>
@@ -20,6 +20,7 @@
       <hr>
       <ul class="list-group">
         <li
+          [@list1]
           class="list-group-item"
           (click)="onDelete(item)"
           *ngFor="let item of list">
