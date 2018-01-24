@@ -174,3 +174,7 @@ npm install --save @angular/material @angular/cdk
 - switchMap don't wrap with Observable
 - https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b
 - https://blog.nrwl.io/ngrx-patterns-and-techniques-f46126e2b1e5
+
+
+## Testing
+- https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
