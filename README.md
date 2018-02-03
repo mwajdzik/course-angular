@@ -176,5 +176,10 @@ npm install --save @angular/material @angular/cdk
 - https://blog.nrwl.io/ngrx-patterns-and-techniques-f46126e2b1e5
 
 
+# Bootstrap
+- npm install --save bootstrap font-awesome
+- npm install --save @ng-bootstrap/ng-bootstrap
+
+
 ## Testing
 - https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
