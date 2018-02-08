@@ -131,8 +131,11 @@ import * as _ from 'lodash';
 
 
 ## Material Design
-https://material.angular.io/
+- https://material.angular.io/
 npm install --save @angular/material @angular/cdk
+npm install --save @angular/animations                      (if missing)
+- https://material.angular.io/guide/getting-started
+- imports: [BrowserAnimationsModule]
 
 
 ## Deployment
