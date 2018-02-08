@@ -136,7 +136,7 @@ npm install --save @angular/material @angular/cdk
 npm install --save @angular/animations                      (if missing)
 - https://material.angular.io/guide/getting-started
 - imports: [BrowserAnimationsModule]
-
+npm install --save hammerjs
 
 ## Deployment
 - ng build --prod --aot 
