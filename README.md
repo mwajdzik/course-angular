@@ -134,9 +134,11 @@ import * as _ from 'lodash';
 - https://material.angular.io/
 npm install --save @angular/material @angular/cdk
 npm install --save @angular/animations                      (if missing)
+npm install --save @angular/material-moment-adapter
 - https://material.angular.io/guide/getting-started
 - imports: [BrowserAnimationsModule]
 npm install --save hammerjs
+
 
 ## Deployment
 - ng build --prod --aot 
@@ -182,6 +184,10 @@ npm install --save hammerjs
 # Bootstrap
 - npm install --save bootstrap font-awesome
 - npm install --save @ng-bootstrap/ng-bootstrap
+
+
+# Layout - flex
+- npm install --save @angular/flex-layout
 
 
 ## Testing
