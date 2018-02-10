@@ -10,6 +10,8 @@ import {ExerciseService} from '../exercise.service';
 })
 export class CurrentTrainingComponent implements OnInit {
 
+  private intervalTime = 50;
+  private realProgress = 0;
   progress = 0;
   timer: number;
 
@@ -23,16 +25,18 @@ export class CurrentTrainingComponent implements OnInit {
 
   startOrResumeTimer() {
     const exercise = this.exerciseService.getRunningExercise();
-    const step = exercise.duration / 100 * 1000;
+    const step = this.intervalTime / (10 * exercise.duration);
 
     this.timer = window.setInterval(() => {
-      this.progress += 1;
-      if (this.progress > 100) {
-        this.progress = 100;
+      this.realProgress += step;
+      this.progress = Math.round(this.realProgress);
+
+      if (this.realProgress > 100) {
+        this.realProgress = 100;
         this.exerciseService.completeExercise();
         clearInterval(this.timer);
       }
-    }, step);
+    }, this.intervalTime);
   }
 
   onStop() {
