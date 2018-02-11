@@ -22,13 +22,17 @@ export class ExerciseService {
     return this.availableExercises.slice();
   }
 
-  startExercise(selectedId: string) {
-    this.runningExercise = this.availableExercises.find(ex => ex.id === selectedId);
-    this.exerciseChange.next({...this.runningExercise});
+  getExercises() {
+    return [...this.exercises];
   }
 
   getRunningExercise() {
     return {...this.runningExercise};
+  }
+
+  startExercise(selectedId: string) {
+    this.runningExercise = this.availableExercises.find(ex => ex.id === selectedId);
+    this.exerciseChange.next({...this.runningExercise});
   }
 
   completeExercise() {

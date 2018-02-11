@@ -11,7 +11,7 @@ import {ExerciseService} from '../exercise.service';
 export class CurrentTrainingComponent implements OnInit {
 
   private intervalTime = 50;
-  private realProgress = 0;
+  realProgress = 0;
   progress = 0;
   timer: number;
 
@@ -32,7 +32,7 @@ export class CurrentTrainingComponent implements OnInit {
       this.progress = Math.round(this.realProgress);
 
       if (this.realProgress > 100) {
-        this.realProgress = 100;
+        this.progress = this.realProgress = 100;
         this.exerciseService.completeExercise();
         clearInterval(this.timer);
       }
