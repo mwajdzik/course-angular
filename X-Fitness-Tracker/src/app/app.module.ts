@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
+import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
 import {MaterialModule} from './material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,6 +20,8 @@ import {SidenavListComponent} from './navigation/sidenav-list/sidenav-list.compo
 import {StopTrainingComponent} from './training/current-training/stop-training.component';
 import {AuthService} from './auth/auth.service';
 import {ExerciseService} from './training/exercise.service';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import {ExerciseService} from './training/exercise.service';
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [
     AuthService,

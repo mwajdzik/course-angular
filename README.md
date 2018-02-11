@@ -151,6 +151,14 @@ npm install --save hammerjs
 - https://github.com/angular/angularfire2/blob/master/docs/install-and-setup.md
 - npm install angularfire2 firebase --save
 
+- Firestore is a document db (like mongoDB) - collections and documents
+
+- constructor(private db: AngularFirestore) {}
+- valueChanges returns import {Observable} from 'rxjs/Observable'; doesn't include id (key) 
+- this.db.collection('ng-fitness_available-exercises').valueChanges().subscribe((r) => {});
+
+- snapshotChanges returns import {Observable} from 'rxjs/Observable'; includes id (key)
+
 
 ## Modules
 - allow to lazy load modules
