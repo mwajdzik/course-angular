@@ -159,6 +159,8 @@ npm install --save hammerjs
 
 - snapshotChanges returns import {Observable} from 'rxjs/Observable'; includes id (key)
 
+- this.db.collection('ng-fitness_finished-exercises').add(exercise)
+
 
 ## Modules
 - allow to lazy load modules
