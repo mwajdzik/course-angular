@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {
   MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule,
-  MatInputModule, MatListModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule, MatSortModule, MatTableModule,
-  MatTabsModule, MatToolbarModule
+  MatInputModule, MatListModule, MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule,
+  MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule
 } from '@angular/material';
 
 const modules = [
@@ -24,6 +24,7 @@ const modules = [
   MatDialogModule,
   MatTableModule,
   MatSortModule,
+  MatPaginatorModule,
 ];
 
 @NgModule({
