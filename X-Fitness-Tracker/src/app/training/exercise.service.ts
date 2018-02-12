@@ -3,6 +3,7 @@ import {Exercise} from './exercise.model';
 import {Subject} from 'rxjs/Subject';
 import * as moment from 'moment';
 import {AngularFirestore} from 'angularfire2/firestore';
+import {Subscription} from 'rxjs/Subscription';
 
 @Injectable()
 export class ExerciseService {
@@ -10,6 +11,8 @@ export class ExerciseService {
   exerciseChange = new Subject<Exercise>();
   availableExercisesChange = new Subject<Exercise[]>();
   finishedExercisesChange = new Subject<Exercise[]>();
+
+  private firebaseSubscriptions: Subscription[] = [];
 
   private availableExercises: Exercise[] = [
     // {id: 'crunches', name: 'Crunches', duration: 30, calories: 8},
@@ -28,7 +31,7 @@ export class ExerciseService {
     // return this.db.collection('ng-fitness_available-exercises')
     //          .valueChanges();
 
-    return this.db.collection('ng-fitness_available-exercises')
+    this.firebaseSubscriptions.push(this.db.collection('ng-fitness_available-exercises')
       .snapshotChanges()
       .map(docArray => {
         return docArray.map(document => {
@@ -40,7 +43,9 @@ export class ExerciseService {
       }).subscribe((exercises: Exercise[]) => {
         this.availableExercises = exercises;
         this.availableExercisesChange.next([...exercises]);
-      });
+      }, error => {
+        console.log(error);
+      }));
   }
 
   private addDataToDatabase(exercise: Exercise) {
@@ -52,7 +57,7 @@ export class ExerciseService {
   }
 
   fetchCompletedOrCancelledExercises() {
-    this.db.collection('ng-fitness_finished-exercises')
+    this.firebaseSubscriptions.push(this.db.collection('ng-fitness_finished-exercises')
       .valueChanges()
       .map(exercises => {
         return exercises.map((exercise: any) => {
@@ -64,7 +69,9 @@ export class ExerciseService {
       })
       .subscribe((exercises: Exercise[]) => {
         this.finishedExercisesChange.next(exercises);
-      });
+      }, error => {
+        console.log(error);
+      }));
   }
 
   getRunningExercise() {
@@ -88,5 +95,9 @@ export class ExerciseService {
     this.addDataToDatabase({...this.runningExercise, date: moment(), state: 'cancelled', duration, calories});
     this.runningExercise = null;
     this.exerciseChange.next(null);
+  }
+
+  cancelSubscriptions() {
+    this.firebaseSubscriptions.forEach(s => s.unsubscribe());
   }
 }

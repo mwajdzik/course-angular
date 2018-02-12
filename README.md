@@ -161,6 +161,8 @@ npm install --save hammerjs
 
 - this.db.collection('ng-fitness_finished-exercises').add(exercise)
 
+- this.db.doc('ng-fitness_finished-exercises/' + id).update({lastUpdated: new Date()})
+
 
 ## Modules
 - allow to lazy load modules

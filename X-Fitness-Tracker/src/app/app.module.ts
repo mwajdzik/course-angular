@@ -22,6 +22,7 @@ import {AuthService} from './auth/auth.service';
 import {ExerciseService} from './training/exercise.service';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [
     AuthService,

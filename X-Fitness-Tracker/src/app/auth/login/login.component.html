@@ -1,26 +1,23 @@
 <section class="login">
-  <form #f="ngForm"
+  <form [formGroup]="loginForm"
         (ngSubmit)="onSubmit(f)"
         fxLayout="column"
         fxLayoutAlign="center center"
         fxLayoutGap="10px">
     <mat-form-field>
       <input type="email" matInput
-             ngModel name="email"
-             required email
+             ngModel formControlName="email"
              placeholder="Your email">
     </mat-form-field>
 
     <mat-form-field>
       <input type="password" matInput
-             ngModel name="password"
-             required minlength="6"
+             ngModel formControlName="password"
              placeholder="Your password">
     </mat-form-field>
 
     <button type="submit" mat-raised-button
-            color="primary"
-            [disabled]="!f.valid">
+            color="primary">
       Submit
     </button>
   </form>
