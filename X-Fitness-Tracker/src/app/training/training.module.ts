@@ -1,12 +1,9 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {MaterialModule} from '../material.module';
-import {FlexLayoutModule} from '@angular/flex-layout';
 import {NewTrainingComponent} from './new-training/new-training.component';
 import {PastTrainingsComponent} from './past-trainings/past-trainings.component';
 import {CurrentTrainingComponent} from './current-training/current-training.component';
 import {TrainingComponent} from './training.component';
-import {FormsModule} from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +13,7 @@ import {FormsModule} from '@angular/forms';
     PastTrainingsComponent,
   ],
   imports: [
-    CommonModule,
-    MaterialModule,
-    FlexLayoutModule,
-    FormsModule,
+    SharedModule,
   ]
 })
 export class TrainingModule {
