@@ -5,6 +5,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireAuthModule,
   ]
 })
 export class AuthModule {

@@ -15,7 +15,6 @@ import {AuthService} from './auth/auth.service';
 import {ExerciseService} from './training/exercise.service';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
-import {AngularFireAuthModule} from 'angularfire2/auth';
 import {UIService} from './shared/ui.service';
 import {AuthModule} from './auth/auth.module';
 import {TrainingModule} from './training/training.module';
@@ -37,7 +36,6 @@ import {TrainingModule} from './training/training.module';
     FlexLayoutModule,
     BrowserAnimationsModule,
     AngularFirestoreModule,
-    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [
