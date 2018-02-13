@@ -4,6 +4,7 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {ExerciseService} from '../training/exercise.service';
+import {UIService} from '../shared/ui.service';
 
 @Injectable()
 export class AuthService {
@@ -14,6 +15,7 @@ export class AuthService {
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
+              private uiService: UIService,
               private exerciseService: ExerciseService) {
   }
 
@@ -33,22 +35,28 @@ export class AuthService {
   }
 
   registerUser(authData: AuthData) {
+    this.uiService.loadingStateChanged.next(true);
     this.afAuth.auth.createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         console.log('REGISTERED:', result);
+        this.uiService.loadingStateChanged.next(false);
       })
       .catch(error => {
-        console.log('ERROR1:', error);
+        this.uiService.showSnackbar(error.message, null, 3000);
+        this.uiService.loadingStateChanged.next(false);
       });
   }
 
   login(authData: AuthData) {
+    this.uiService.loadingStateChanged.next(true);
     this.afAuth.auth.signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         console.log('LOGGED IN:', result);
+        this.uiService.loadingStateChanged.next(false);
       })
       .catch(error => {
-        console.log('ERROR2:', error);
+        this.uiService.showSnackbar(error.message, null, 3000);
+        this.uiService.loadingStateChanged.next(false);
       });
   }
 

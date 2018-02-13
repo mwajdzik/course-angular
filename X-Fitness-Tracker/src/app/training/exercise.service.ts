@@ -4,6 +4,7 @@ import {Subject} from 'rxjs/Subject';
 import * as moment from 'moment';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {Subscription} from 'rxjs/Subscription';
+import {UIService} from '../shared/ui.service';
 
 @Injectable()
 export class ExerciseService {
@@ -23,7 +24,8 @@ export class ExerciseService {
 
   private runningExercise: Exercise = null;
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore,
+              private uiService: UIService) {
   }
 
   fetchAvailableExercises() {
@@ -44,7 +46,7 @@ export class ExerciseService {
         this.availableExercises = exercises;
         this.availableExercisesChange.next([...exercises]);
       }, error => {
-        console.log(error);
+        this.uiService.showSnackbar(error.message, null, 3000);
       }));
   }
 
@@ -70,7 +72,7 @@ export class ExerciseService {
       .subscribe((exercises: Exercise[]) => {
         this.finishedExercisesChange.next(exercises);
       }, error => {
-        console.log(error);
+        this.uiService.showSnackbar(error.message, null, 3000);
       }));
   }
 
