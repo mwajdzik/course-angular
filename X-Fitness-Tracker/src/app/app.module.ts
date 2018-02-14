@@ -10,7 +10,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HeaderComponent} from './navigation/header/header.component';
 import {SidenavListComponent} from './navigation/sidenav-list/sidenav-list.component';
-import {StopTrainingComponent} from './training/current-training/stop-training.component';
 import {AuthService} from './auth/auth.service';
 import {ExerciseService} from './training/exercise.service';
 import {AngularFireModule} from 'angularfire2';
@@ -25,7 +24,6 @@ import {TrainingModule} from './training/training.module';
     WelcomeComponent,
     HeaderComponent,
     SidenavListComponent,
-    StopTrainingComponent,
   ],
   imports: [
     AuthModule,
@@ -46,11 +44,6 @@ import {TrainingModule} from './training/training.module';
   bootstrap: [
     AppComponent
   ],
-
-  // for components that are NOT created using selectors not routing
-  entryComponents: [
-    StopTrainingComponent
-  ]
 })
 export class AppModule {
 }
