@@ -16,7 +16,6 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {UIService} from './shared/ui.service';
 import {AuthModule} from './auth/auth.module';
-import {TrainingModule} from './training/training.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import {TrainingModule} from './training/training.module';
   ],
   imports: [
     AuthModule,
-    TrainingModule,
     AppRoutingModule,
     BrowserModule,
     MaterialModule,
