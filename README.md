@@ -163,6 +163,8 @@ npm install --save hammerjs
 
 - this.db.doc('ng-fitness_finished-exercises/' + id).update({lastUpdated: new Date()})
 
+![alt text](./.images/firebase.jpg)
+
 
 ## Modules
 - allow to lazy load modules
@@ -192,6 +194,9 @@ npm install --save hammerjs
 - https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b
 - https://blog.nrwl.io/ngrx-patterns-and-techniques-f46126e2b1e5
 
+![alt text](./.images/redux.jpg)
+
+![alt text](./.images/ngrx.jpg)
 
 # Bootstrap
 - npm install --save bootstrap font-awesome
