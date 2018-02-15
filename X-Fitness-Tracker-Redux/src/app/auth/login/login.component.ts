@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
-import {UIService} from '../../shared/ui.service';
+import {Store} from '@ngrx/store';
+import {getIsLoading, State} from '../../app.reducer';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   isLoading = false;
 
-  private loadingSubscription;
-
   constructor(private authService: AuthService,
-              private uiService: UIService) {
+              private store: Store<State>) {
 
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -25,12 +24,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.loadingSubscription = this.uiService.loadingStateChanged
-      .subscribe(loading => this.isLoading = loading);
+    this.store.select(getIsLoading).subscribe(
+      isLoading => this.isLoading = isLoading
+    );
   }
 
   ngOnDestroy() {
-    this.loadingSubscription.unsubscribe();
   }
 
   onSubmit() {
