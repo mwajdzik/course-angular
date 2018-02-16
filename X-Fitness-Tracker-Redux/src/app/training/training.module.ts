@@ -6,6 +6,8 @@ import {TrainingComponent} from './training.component';
 import {SharedModule} from '../shared/shared.module';
 import {StopTrainingComponent} from './current-training/stop-training.component';
 import {TrainingRoutingModule} from './training-routing.module';
+import {StoreModule} from '@ngrx/store';
+import {trainingReducer} from './training.reducer';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import {TrainingRoutingModule} from './training-routing.module';
   imports: [
     SharedModule,
     TrainingRoutingModule,
+    StoreModule.forFeature('training', trainingReducer)
   ],
 
   // for components that are NOT created using selectors not routing
