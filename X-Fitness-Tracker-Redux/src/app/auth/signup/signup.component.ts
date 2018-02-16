@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import * as moment from 'moment';
 import {AuthService} from '../auth.service';
@@ -10,7 +10,7 @@ import {getIsLoading, State} from '../../app.reducer';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit, OnDestroy {
+export class SignupComponent implements OnInit {
 
   maxDate = moment().subtract(18, 'year');
   isLoading = false;
@@ -23,9 +23,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.store.select(getIsLoading).subscribe(
       isLoading => this.isLoading = isLoading
     );
-  }
-
-  ngOnDestroy() {
   }
 
   onSubmit(form: NgForm) {
