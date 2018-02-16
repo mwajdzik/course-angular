@@ -27,7 +27,7 @@ export function trainingReducer(state = initialState, action: TrainingActions) {
     case SET_FINISHED_TRAININGS:
       return {...state, finishedExercises: action.payload};
     case START_TRAINING:
-      return {...state, activeExercise: action.payload};
+      return {...state, activeExercise: state.availableExercises.find(ex => ex.id === action.payload)};
     case STOP_TRAINING:
       return {...state, activeExercise: null};
     default:
@@ -47,5 +47,9 @@ export const getFinishedExercises = createSelector(getTrainingState, (state: Tra
 
 export const getActiveExercise = createSelector(getTrainingState, (state: TrainingState) => {
   return state.activeExercise;
+});
+
+export const getIsTraining = createSelector(getTrainingState, (state: TrainingState) => {
+  return state.activeExercise != null;
 });
 

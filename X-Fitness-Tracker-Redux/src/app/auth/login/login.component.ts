@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {Store} from '@ngrx/store';
@@ -9,7 +9,7 @@ import {getIsLoading, State} from '../../app.reducer';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   isLoading = false;
@@ -27,9 +27,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.store.select(getIsLoading).subscribe(
       isLoading => this.isLoading = isLoading
     );
-  }
-
-  ngOnDestroy() {
   }
 
   onSubmit() {
