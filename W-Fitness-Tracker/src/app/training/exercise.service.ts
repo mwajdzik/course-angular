@@ -42,7 +42,8 @@ export class ExerciseService {
             ...document.payload.doc.data()
           };
         });
-      }).subscribe((exercises: Exercise[]) => {
+      })
+      .subscribe((exercises: Exercise[]) => {
         this.availableExercises = exercises;
         this.availableExercisesChange.next([...exercises]);
       }, error => {

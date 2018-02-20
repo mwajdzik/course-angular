@@ -89,7 +89,7 @@ import * as _ from 'lodash';
 ## Directives:
 - attribute - interact with the element (ngClass, ngStyle)
 - structural - interact with the current view container and change the structure of the DOM (ngIf, ngFor, ngSwitch)   
-             - leading *, only one structural directive is allowed on a given element
+             - leading star, only one structural directive is allowed on a given element
 
 ## Pipes
 - used to transform a value
@@ -205,6 +205,11 @@ npm install --save hammerjs
 
 # Layout - flex
 - npm install --save @angular/flex-layout
+
+
+# Libs:
+- (!!!) https://github.com/brillout/awesome-angular-components
+- Drag&Drop: https://github.com/akserg/ng2-dnd
 
 
 ## Testing
