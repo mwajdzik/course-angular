@@ -1,5 +1,5 @@
 ```
-sudo npm install -g @angular/cli
+npm install -g @angular/cli
 
 ng new MY_PROJECT_NAME --prefix MY_PREFIX
 ng serve -p 4300
@@ -14,19 +14,21 @@ https://augury.angular.io/
 ```
 ng --help
 
-ng generate component other             (ng g c other)
+ng generate component name              (ng g c name)
      --flat -is -it
      --inline-styles
      --inline-template
      --spec false
+
+ng g module name
 
 ng generate class recipe                (ng g cl recipe)
 ng g directive name
 ng g service name
 ng g route name --lazy false
 
-ng destroy component other
-ng destroy component other --flat
+ng destroy component name
+ng destroy component name --flat
 
 ng lint
 ng test
