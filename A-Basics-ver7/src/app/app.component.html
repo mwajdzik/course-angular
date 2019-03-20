@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <h3>two way data binding, *ngIf</h3>
+    <div>
+      <span [ngStyle]="{'background-color': getTextColor()}">
+        Your text
+      </span>
+      <input type="text" class="form-control" [(ngModel)]="text"/>
+    </div>
+    <div>
+      <span *ngIf="text">Your text: {{text}}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <h3>lifecycle</h3>
+
+    <app-lifecycle [value]="text">
+      <div>Included content and the entered value: {{text}}</div>
+    </app-lifecycle>
+  </div>
+
+  <div class="row">
+    <h3>*ngFor</h3>
+    <app-databinding [persons]="persons" (newPersonAdded)="personAdded($event)">
+    </app-databinding>
+  </div>
+</div>

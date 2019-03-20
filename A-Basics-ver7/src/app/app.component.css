@@ -1,0 +1,17 @@
+.row {
+  margin: 20px;
+  padding: 10px;
+  background-color: #c5cae9;
+}
+
+h3 {
+  margin: 0;
+}
+
+.row div {
+  margin: 10px 20px;
+}
+
+.form-control {
+  margin-left: 10px;
+}
