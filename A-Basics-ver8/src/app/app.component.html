@@ -2,10 +2,10 @@
   <div class="row">
     <h3>two way data binding, *ngIf</h3>
     <div>
-      <span [ngStyle]="{'background-color': getTextColor()}">
+      <label [ngStyle]="{'background-color': getTextColor()}">
         Your text
-      </span>
-      <input type="text" class="form-control" [(ngModel)]="text"/>
+        <input type="text" class="form-control" [(ngModel)]="text"/>
+      </label>
     </div>
     <div>
       <span *ngIf="text">Your text: {{text}}</span>

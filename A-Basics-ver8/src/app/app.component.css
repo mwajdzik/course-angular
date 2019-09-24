@@ -5,13 +5,17 @@
 }
 
 h3 {
-  margin: 0;
+  margin-bottom: 0.8em;
 }
 
 .row div {
   margin: 10px 20px;
 }
 
+label {
+  padding: 2px;
+}
+
 .form-control {
-  margin-left: 10px;
+  width: 15em;
 }

@@ -31,6 +31,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
       margin: 0;
       padding: 0;
     }
+
+    .form-control {
+      width: 15em;
+    }
   `]
 })
 export class DatabindingComponent {

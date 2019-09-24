@@ -21,8 +21,7 @@ import {DatabindingComponent} from './databinding/databinding.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [
-  ]
+  providers: []
 })
 export class AppModule {
 
