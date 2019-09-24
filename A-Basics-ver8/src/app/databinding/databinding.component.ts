@@ -21,11 +21,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
     </div>
   `,
   styles: [`
-    div {
-      margin: 0 0 0 20px;
-      display: inline-block;
-    }
-
     ul {
       list-style-type: none;
       margin: 0;

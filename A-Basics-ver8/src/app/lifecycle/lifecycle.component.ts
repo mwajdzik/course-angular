@@ -6,17 +6,36 @@ import {
 @Component({
   selector: 'app-lifecycle',
   template: `
-    <ng-content></ng-content>
-    <div>
-      {{value}}
-    </div>
+      <div>
+          <div class="row">
+              <ng-content></ng-content>
+          </div>
+          <div class="row">
+              Value: {{value}}
+          </div>
+          <div class="row">
+              <label class="control-label">
+                  Log:
+                  <textarea class="form-control">{{log}}</textarea>
+              </label>
+          </div>
+      </div>
+
   `,
   styles: [`
-    div {
-      color: #3f51b5;
-      margin-left: 20px;
-      display: inline-block;
-    }
+      .row {
+          padding: 0 1em;
+      }
+
+      .control-label {
+          width: 100%;
+          margin-top: 1em;
+      }
+
+      textarea {
+          height: 250px;
+          font-family: Courier, serif;
+      }
   `]
 })
 export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterContentInit,
@@ -24,37 +43,44 @@ export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterCont
 
   @Input() value: string;
 
+  private log = '';
+
+  logMessage(message) {
+    const now = new Date().toLocaleTimeString();
+    this.log = `[${now}]  ${message}\n${this.log}`;
+  }
+
   constructor() {
-    console.log('101. LifecycleComponent.constructor');
+    this.logMessage('101. LifecycleComponent.constructor');
   }
 
   // called after a bound input property changes - called many times
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('102. ngOnChanges called');
+    this.logMessage('102. ngOnChanges called');
 
     const c = changes;
-    console.log('\tpreviousValue =', c.value.previousValue);
-    console.log('\tcurrentValue =', c.value.currentValue);
+    this.logMessage('\tpreviousValue = ' + c.value.previousValue);
+    this.logMessage('\tcurrentValue =' + c.value.currentValue);
   }
 
   // called once the component is initialized (after constructor)
   ngOnInit() {
-    console.log('103. ngOnInit called');
+    this.logMessage('103. ngOnInit called');
   }
 
   // called during every change detection run - called many times
   ngDoCheck(): void {
-    console.log('104. ngDoCheck called');
+    this.logMessage('104. ngDoCheck called');
   }
 
   // called after content (ng-content) has been projected into view
   ngAfterContentInit(): void {
-    console.log('105. ngAfterContentInit called');
+    this.logMessage('105. ngAfterContentInit called');
   }
 
   // called every time the projected content has been checked
   ngAfterContentChecked(): void {
-    console.log('106. ngAfterContentChecked called');
+    this.logMessage('106. ngAfterContentChecked called');
   }
 
   // called after the component's view (and child views) has been initialized
@@ -69,6 +95,6 @@ export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterCont
 
   // called once the component is about to be destroyed
   ngOnDestroy(): void {
-    console.log('109. ngOnDestroy called');
+    this.logMessage('109. ngOnDestroy called');
   }
 }
