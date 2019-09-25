@@ -6,10 +6,11 @@ import {Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Rendere
 export class HighlightDirective implements OnInit {
 
   @Input() defaultColor = 'transparent';
-  @Input() highlightColor = 'red';  // @Input('appHighlight')
+  @Input() highlightColor = 'red';
   @HostBinding('style.backgroundColor') backgroundColor: string;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
+  constructor(private elementRef: ElementRef,
+              private renderer: Renderer2) {
   }
 
   ngOnInit(): void {

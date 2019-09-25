@@ -5,7 +5,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
 import {LifecycleComponent} from './lifecycle/lifecycle.component';
-import {DatabindingComponent} from './databinding/databinding.component';
+import {DataBindingComponent} from './databinding/data-binding.component';
+import {HighlightDirective} from './directive/highlight.directive';
+import {UnlessDirective} from './directive/unless.directive';
 
 @NgModule({
   // root app component
@@ -13,8 +15,10 @@ import {DatabindingComponent} from './databinding/databinding.component';
   // all components
   declarations: [
     AppComponent,
-    DatabindingComponent,
-    LifecycleComponent
+    DataBindingComponent,
+    LifecycleComponent,
+    UnlessDirective,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

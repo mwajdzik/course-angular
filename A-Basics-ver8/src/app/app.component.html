@@ -5,13 +5,15 @@
         <div class="panel-body">
           <h3>two way data binding, *ngIf</h3>
           <div>
+            <!-- attribute directive -->
             <label [ngStyle]="{'background-color': getTextColor()}">
               Some Text:
               <input type="text" class="form-control" [(ngModel)]="text"/>
             </label>
             <button class="btn btn-primary" (click)="onOkButtonClick($event)">OK</button>
           </div>
-          <div>
+          <div style="margin-top: 20px">
+            <!-- structural directive -->
             <span *ngIf="text">Your text: {{text}}</span>
           </div>
         </div>
@@ -22,8 +24,8 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <h3>*ngFor</h3>
-          <app-databinding [persons]="persons" (newPersonAdded)="personAdded($event)">
-          </app-databinding>
+          <app-data-binding [persons]="persons" (newPersonAdded)="personAdded($event)">
+          </app-data-binding>
         </div>
       </div>
     </div>
@@ -37,6 +39,32 @@
           <app-lifecycle [value]="text">
             <div>Included content and the entered value: {{text}}</div>
           </app-lifecycle>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-xs-12">
+            <h3>directives</h3>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>structural</strong> change DOM, *ngIf, *ngFor</li>
+              <li class="list-group-item"><strong>attribute</strong> [ngStyle], [ngClass]</li>
+            </ul>
+          </div>
+          <div class="col-xs-6">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing aperiam architecto dolorem.</p>
+            <p appHighlight>Lorem ipsum dolor sit amet, consectetur adipisicing aperiam architecto dolorem.</p>
+            <p appHighlight [defaultColor]="'yellow'" highlightColor="orange">
+              Lorem ipsum dolor sit amet, consectetur adipisicing aperiam architecto dolorem.</p>
+          </div>
+          <div class="col-xs-6">
+            <button class="btn btn-primary" (click)="show=!show">Toggle</button>
+            <span *appUnless="show"> Lorem ipsum dolor sit amet</span>
+          </div>
         </div>
       </div>
     </div>

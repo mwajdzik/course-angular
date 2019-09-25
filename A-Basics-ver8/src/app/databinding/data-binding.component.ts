@@ -1,12 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-databinding',
+  selector: 'app-data-binding',
   template: `
     <div>
-      All people ({{persons.length}}):
-      <ul>
-        <li *ngFor="let person of persons">
+      <ul class="list-group">
+        <li *ngFor="let person of persons" class="list-group-item">
           {{person}}
         </li>
       </ul>
@@ -35,7 +34,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
     }
   `]
 })
-export class DatabindingComponent {
+export class DataBindingComponent {
 
   @Input() persons: string[];
   @Output() newPersonAdded = new EventEmitter<string>();

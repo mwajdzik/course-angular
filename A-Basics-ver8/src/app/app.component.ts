@@ -8,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
 
   text = '';
+  show = false;
   counter = 0;
   persons = ['Maciek', 'Madzia'];
 
