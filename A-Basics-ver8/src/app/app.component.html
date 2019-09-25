@@ -1,28 +1,42 @@
 <div class="container">
   <div class="row">
-    <h3>two way data binding, *ngIf</h3>
-    <div>
-      <label [ngStyle]="{'background-color': getTextColor()}">
-        Your text
-        <input type="text" class="form-control" [(ngModel)]="text"/>
-      </label>
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>two way data binding, *ngIf</h3>
+          <div>
+            <label [ngStyle]="{'background-color': getTextColor()}">
+              Some Text:
+              <input type="text" class="form-control" [(ngModel)]="text"/>
+            </label>
+            <button class="btn btn-primary" (click)="onOkButtonClick($event)">OK</button>
+          </div>
+          <div>
+            <span *ngIf="text">Your text: {{text}}</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <span *ngIf="text">Your text: {{text}}</span>
+
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>*ngFor</h3>
+          <app-databinding [persons]="persons" (newPersonAdded)="personAdded($event)">
+          </app-databinding>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
-    <h3>lifecycle</h3>
-
-    <app-lifecycle [value]="text">
-      <div>Included content and the entered value: {{text}}</div>
-    </app-lifecycle>
-  </div>
-
-  <div class="row">
-    <h3>*ngFor</h3>
-    <app-databinding [persons]="persons" (newPersonAdded)="personAdded($event)">
-    </app-databinding>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>lifecycle</h3>
+        <app-lifecycle [value]="text">
+          <div>Included content and the entered value: {{text}}</div>
+        </app-lifecycle>
+      </div>
+    </div>
   </div>
 </div>

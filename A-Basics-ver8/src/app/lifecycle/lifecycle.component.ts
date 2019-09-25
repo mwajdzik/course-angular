@@ -57,10 +57,8 @@ export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterCont
   // called after a bound input property changes - called many times
   ngOnChanges(changes: SimpleChanges): void {
     this.logMessage('102. ngOnChanges called');
-
-    const c = changes;
-    this.logMessage('\tpreviousValue = ' + c.value.previousValue);
-    this.logMessage('\tcurrentValue =' + c.value.currentValue);
+    this.logMessage('     previousValue = ' + changes.value.previousValue);
+    this.logMessage('     currentValue = ' + changes.value.currentValue);
   }
 
   // called once the component is initialized (after constructor)

@@ -8,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
 
   text = '';
+  counter = 0;
   persons = ['Maciek', 'Madzia'];
 
   constructor() {
@@ -24,5 +25,10 @@ export class AppComponent implements OnInit {
 
   personAdded(event) {
     this.text = event + ' was just added!';
+  }
+
+  onOkButtonClick(event) {
+    this.counter++;
+    this.text = `Button clicked ${this.counter} times!`;
   }
 }

@@ -15,3 +15,7 @@ label {
 input.form-control {
   width: 15em;
 }
+
+button {
+  margin-left: 10px;
+}

@@ -13,11 +13,14 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
     </div>
     <br>
     <div>
-      <input #newPersonEl
-             type="text"
-             class="form-control"
-             [(ngModel)]="newPerson"
-             (keyup.enter)="onEnter(newPersonEl.value)"/>
+      <label>
+          Add a New Person:
+          <input #newPersonEl
+                 type="text"
+                 class="form-control"
+                 [(ngModel)]="newPerson"
+                 (keyup.enter)="onEnter(newPersonEl.value)"/>
+      </label>
     </div>
   `,
   styles: [`
