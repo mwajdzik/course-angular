@@ -7,8 +7,10 @@ export class HighlightDirective implements OnInit {
 
   @Input() defaultColor = 'transparent';
   @Input() highlightColor = 'red';
+
   @HostBinding('style.backgroundColor') backgroundColor: string;
 
+  // noinspection JSUnusedLocalSymbols
   constructor(private elementRef: ElementRef,
               private renderer: Renderer2) {
   }

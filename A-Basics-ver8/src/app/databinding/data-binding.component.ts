@@ -5,8 +5,8 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   template: `
     <div>
       <ul class="list-group">
-        <li *ngFor="let person of persons" class="list-group-item">
-          {{person}}
+        <li *ngFor="let person of persons; let i = index" class="list-group-item">
+            <span>{{i + 1}}. {{person}}</span>
         </li>
       </ul>
     </div>
