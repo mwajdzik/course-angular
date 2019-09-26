@@ -8,6 +8,7 @@ import {LifecycleComponent} from './lifecycle/lifecycle.component';
 import {DataBindingComponent} from './databinding/data-binding.component';
 import {HighlightDirective} from './directive/highlight.directive';
 import {UnlessDirective} from './directive/unless.directive';
+import {CockpitComponent} from './cockpit/cockpit.component';
 
 @NgModule({
   // root app component
@@ -15,6 +16,7 @@ import {UnlessDirective} from './directive/unless.directive';
   // all components
   declarations: [
     AppComponent,
+    CockpitComponent,
     DataBindingComponent,
     LifecycleComponent,
     UnlessDirective,

@@ -7,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  item = null;
   caption = '';
   showText = false;
   clickCounter = 0;
@@ -31,5 +32,9 @@ export class AppComponent implements OnInit {
   onOkButtonClick(event) {
     this.clickCounter++;
     this.caption = `Button clicked ${this.clickCounter} times!`;
+  }
+
+  newItemCreated(item: { name: string, content: string }) {
+    this.item = item;
   }
 }

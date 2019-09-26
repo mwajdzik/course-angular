@@ -76,4 +76,19 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          different ways of getting field values ({{item?.name}} - {{item?.content}})
+        </div>
+        <div class="panel-body">
+          <div class="col-xs-12">
+            <app-cockpit (itemCreated)="newItemCreated($event)"></app-cockpit>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
