@@ -7,9 +7,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  text = '';
-  show = false;
-  counter = 0;
+  caption = '';
+  showText = false;
+  clickCounter = 0;
   persons = ['Maciek', 'Madzia'];
 
   constructor() {
@@ -21,15 +21,15 @@ export class AppComponent implements OnInit {
   }
 
   getTextColor() {
-    return this.text === '' ? 'white' : 'orange';
+    return this.caption === '' ? 'white' : 'orange';
   }
 
   personAdded(event) {
-    this.text = event + ' was just added!';
+    this.caption = event + ' was just added!';
   }
 
   onOkButtonClick(event) {
-    this.counter++;
-    this.text = `Button clicked ${this.counter} times!`;
+    this.clickCounter++;
+    this.caption = `Button clicked ${this.clickCounter} times!`;
   }
 }
