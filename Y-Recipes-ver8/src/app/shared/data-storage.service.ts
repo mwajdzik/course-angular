@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../recipes/recipe.service';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../../Y-Recipes/src/environments/environment';
 import {AuthService} from '../auth/auth.service';
 
 @Injectable()
