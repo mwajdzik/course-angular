@@ -1,6 +1,14 @@
 import {
-  AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
-  Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges
 } from '@angular/core';
 
 @Component({
@@ -38,12 +46,12 @@ import {
       }
   `]
 })
-export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterContentInit,
+export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() value: string;
 
-  private log = '';
+  log = '';
 
   logMessage(message) {
     const now = new Date().toLocaleTimeString();
@@ -64,11 +72,6 @@ export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterCont
   // called once the component is initialized (after constructor)
   ngOnInit() {
     this.logMessage('103. ngOnInit called');
-  }
-
-  // called during every change detection run - called many times
-  ngDoCheck(): void {
-    this.logMessage('104. ngDoCheck called');
   }
 
   // called after content (ng-content) has been projected into view
