@@ -14,11 +14,11 @@ export class AppComponent implements OnInit {
   persons = ['Maciek', 'Madzia'];
 
   constructor() {
-    console.log('3. AppComponent.constructor');
+    console.log('3. app.component.ts - AppComponent.constructor');
   }
 
   ngOnInit() {
-    console.log('4. AppComponent.ngOnInit');
+    console.log('9. app.component.ts - AppComponent.ngOnInit');
   }
 
   getTextColor() {

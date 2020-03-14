@@ -13,6 +13,7 @@ export class HighlightDirective implements OnInit {
   // noinspection JSUnusedLocalSymbols
   constructor(private elementRef: ElementRef,
               private renderer: Renderer2) {
+    console.log('6. highlight.component.ts - HighlightDirective.constructor');
   }
 
   ngOnInit(): void {

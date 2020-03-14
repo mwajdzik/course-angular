@@ -32,6 +32,6 @@ import {CockpitComponent} from './cockpit/cockpit.component';
 export class AppModule {
 
   constructor() {
-    console.log('2. AppModule.constructor');
+    console.log('2. app.module.ts - AppModule.constructor');
   }
 }

@@ -42,6 +42,10 @@ export class CockpitComponent {
   @ViewChild('localRef1', {static: false}) private newNameRef: ElementRef;
   @ViewChild('localRef2', {static: false}) private newContentRef: ElementRef;
 
+  constructor() {
+    console.log('8. cockpit.component.ts - CockpitComponent.constructor');
+  }
+
   onAddItem() {
     this.itemCreated.emit({
       name: this.newName,

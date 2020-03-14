@@ -59,6 +59,7 @@ export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   }
 
   constructor() {
+    console.log('5. lifecycle.component.ts - LifecycleComponent.constructor');
     this.logMessage('101. LifecycleComponent.constructor');
   }
 

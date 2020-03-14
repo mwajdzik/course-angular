@@ -41,6 +41,10 @@ export class DataBindingComponent {
 
   public newPerson: string;
 
+  constructor() {
+    console.log('4. data-binding.component.ts - DataBindingComponent.constructor');
+  }
+
   onEnter(person: string) {
     if (person !== '') {
       this.persons.push(person);
