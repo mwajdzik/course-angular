@@ -11,8 +11,7 @@ export class HighlightDirective implements OnInit {
   @HostBinding('style.backgroundColor') backgroundColor: string;
 
   // noinspection JSUnusedLocalSymbols
-  constructor(private elementRef: ElementRef,
-              private renderer: Renderer2) {
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
     console.log('6. highlight.component.ts - HighlightDirective.constructor');
   }
 

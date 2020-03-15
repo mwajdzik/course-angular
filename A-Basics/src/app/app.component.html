@@ -3,11 +3,10 @@
     <div class="col-xs-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          two way data binding, *ngIf
+          Two way data binding, attribute directive [ngStyle], structural directive *ngIf
         </div>
         <div class="panel-body">
           <div>
-            <!-- attribute directive -->
             <label [ngStyle]="{'background-color': getTextColor()}">
               Some Text:
               <input type="text" class="form-control" [(ngModel)]="caption"/>
@@ -15,7 +14,6 @@
             <button class="btn btn-primary" (click)="onOkButtonClick($event)">OK</button>
           </div>
           <div style="margin-top: 20px">
-            <!-- structural directive -->
             <span *ngIf="caption">Your text: {{caption}}</span>
           </div>
         </div>
@@ -25,7 +23,7 @@
     <div class="col-xs-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          *ngFor
+          Structural directive *ngFor
         </div>
         <div class="panel-body">
           <app-data-binding [persons]="persons" (newPersonAdded)="personAdded($event)">

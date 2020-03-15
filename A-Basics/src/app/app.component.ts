@@ -26,15 +26,18 @@ export class AppComponent implements OnInit {
   }
 
   personAdded(event) {
+    console.log('personAdded');
     this.caption = event + ' was just added!';
   }
 
   onOkButtonClick(event) {
+    console.log('onOkButtonClick');
     this.clickCounter++;
     this.caption = `Button clicked ${this.clickCounter} times!`;
   }
 
   newItemCreated(item: { name: string, content: string }) {
     this.item = item;
+    console.log('newItemCreated: ' + item);
   }
 }
