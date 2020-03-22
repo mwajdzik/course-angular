@@ -6,19 +6,19 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
     <div>
       <ul class="list-group">
         <li *ngFor="let person of persons; let i = index" class="list-group-item">
-            <span>{{i + 1}}. {{person}}</span>
+          <span>{{i + 1}}. {{person}}</span>
         </li>
       </ul>
     </div>
     <br>
     <div>
       <label>
-          Add a New Person:
-          <input #newPersonEl
-                 type="text"
-                 class="form-control"
-                 [(ngModel)]="newPerson"
-                 (keyup.enter)="onEnter(newPersonEl.value)"/>
+        Add a New Person:
+        <input #newPersonEl
+               type="text"
+               class="form-control"
+               [(ngModel)]="newPerson"
+               (keyup.enter)="onEnter(newPersonEl.value)"/>
       </label>
     </div>
   `,
@@ -35,7 +35,23 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   `]
 })
 export class DataBindingComponent {
+  /*
+      String Interpolation    {{ data }}
 
+      Property Binding        [property]="data"
+
+                              it's not the same as using a directive, eg. [ngStyle]
+
+      Event Binding           (even)="expression"
+
+                              (input)="onAction($event)"
+
+                              onAction(event: Event) {
+                                (<HTMLInputElement>event.target).value
+                              }
+
+      TwoWay Binding          [(ngModel)]="data"
+   */
   @Input() persons: string[];
   @Output() newPersonAdded = new EventEmitter<string>();
 

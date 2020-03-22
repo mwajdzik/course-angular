@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   getTextColor() {
-    return this.caption === '' ? 'white' : 'orange';
+    return this.caption === '' ? 'white' : 'green';
   }
 
   personAdded(event) {

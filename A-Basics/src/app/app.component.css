@@ -21,3 +21,7 @@ input.form-control {
 button {
   margin-left: 10px;
 }
+
+.text-present {
+  color: white;
+}

@@ -3,11 +3,12 @@
     <div class="col-xs-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Two way data binding, attribute directive [ngStyle], structural directive *ngIf
+          Two way data binding, <b>attribute</b> directive [ngStyle], [ngClass], <b>structural</b> directive *ngIf
         </div>
         <div class="panel-body">
           <div>
-            <label [ngStyle]="{'background-color': getTextColor()}">
+            <label [ngStyle]="{backgroundColor: getTextColor()}"
+                   [ngClass]="{'text-present': caption}">
               Some Text:
               <input type="text" class="form-control" [(ngModel)]="caption"/>
             </label>
