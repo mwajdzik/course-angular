@@ -18,7 +18,7 @@ ng generate component name              (ng g c name)
      --flat -is -it
      --inline-styles
      --inline-template
-     --spec false
+     --skipTests false
 
 ng g module name
 
