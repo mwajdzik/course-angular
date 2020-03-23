@@ -12,10 +12,15 @@ import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/c
       </label>
     </div>
     <div class="col-xs-6">
+      <!-- Option #1 - ngModel directive -->
       <button class="btn btn-primary" (click)="onAddItem()">Add</button>
+
+      <!-- Option #2 - local references -->
       <button class="btn btn-primary" (click)="onAddItemWithRefs(localRef1, localRef2)">
         Add with local refs
       </button>
+
+      <!-- Option #3 - ViewChild -->
       <button class="btn btn-primary" (click)="onAddItemWithViewChild()">
         Add with ViewChild
       </button>
@@ -37,10 +42,11 @@ export class CockpitComponent {
   newName = '';
   newContent = '';
 
-  @Output() private itemCreated = new EventEmitter<{ name: string, content: string }>();
+  @Output() private itemCreated = new EventEmitter<{ name: string, content: string , type: string }>();
 
-  @ViewChild('localRef1', {static: false}) private newNameRef: ElementRef;
-  @ViewChild('localRef2', {static: false}) private newContentRef: ElementRef;
+  // static: true if not used in ngOnInit
+  @ViewChild('localRef1', {static: true}) private newNameRef: ElementRef;
+  @ViewChild('localRef2', {static: true}) private newContentRef: ElementRef;
 
   constructor() {
     console.log('8. cockpit.component.ts - CockpitComponent.constructor');
@@ -49,21 +55,24 @@ export class CockpitComponent {
   onAddItem() {
     this.itemCreated.emit({
       name: this.newName,
-      content: this.newContent
+      content: this.newContent,
+      type: 'ngModel'
     });
   }
 
   onAddItemWithRefs(localRef1: HTMLInputElement, localRef2: HTMLInputElement) {
     this.itemCreated.emit({
       name: localRef1.value,
-      content: localRef2.value
+      content: localRef2.value,
+      type: 'Local References'
     });
   }
 
   onAddItemWithViewChild() {
     this.itemCreated.emit({
       name: this.newNameRef.nativeElement.value,
-      content: this.newContentRef.nativeElement.value
+      content: this.newContentRef.nativeElement.value,
+      type: 'ViewChild'
     });
   }
 }

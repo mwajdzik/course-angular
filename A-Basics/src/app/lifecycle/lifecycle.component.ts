@@ -3,7 +3,7 @@ import {
   AfterContentInit,
   AfterViewChecked,
   AfterViewInit,
-  Component,
+  Component, ContentChild, ElementRef,
   Input,
   OnChanges,
   OnDestroy,
@@ -16,7 +16,8 @@ import {
   template: `
       <div>
           <div class="row">
-              <ng-content></ng-content>
+              <ng-content>
+              </ng-content>
           </div>
           <div class="row">
               Value: {{value}}
@@ -50,6 +51,8 @@ export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() value: string;
+
+  @ContentChild('ngContentRef') ngContentRef: ElementRef;
 
   log = '';
 
@@ -93,6 +96,7 @@ export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   // called after the view (and child views) has been checked
   ngAfterViewChecked(): void {
     console.log('108. ngAfterViewChecked called');
+    console.log(this.ngContentRef.nativeElement)
   }
 
   // called once the component is about to be destroyed

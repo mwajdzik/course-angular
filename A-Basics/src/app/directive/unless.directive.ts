@@ -1,5 +1,7 @@
 import {Directive, Input, TemplateRef, ViewContainerRef} from '@angular/core';
 
+// Structural Directive - modifies DOM
+
 @Directive({
   selector: '[appUnless]'
 })

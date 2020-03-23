@@ -42,7 +42,7 @@
         </div>
         <div class="panel-body">
           <app-lifecycle [value]="caption">
-            <div>Included content and the entered value: {{caption}}</div>
+            <div #ngContentRef>Included content and the entered value: {{caption}}</div>
           </app-lifecycle>
         </div>
       </div>
@@ -80,7 +80,7 @@
     <div class="col-xs-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          different ways of getting field values ({{item?.name}} - {{item?.content}})
+          different ways of getting field values {{item?.type}} {{item?.name}} {{item?.content}}
         </div>
         <div class="panel-body">
           <div class="col-xs-12">

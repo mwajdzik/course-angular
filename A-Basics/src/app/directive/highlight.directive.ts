@@ -1,5 +1,7 @@
 import {Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2} from '@angular/core';
 
+// Attribute Directive
+
 @Directive({
   selector: '[appHighlight]'
 })
@@ -10,9 +12,11 @@ export class HighlightDirective implements OnInit {
 
   @HostBinding('style.backgroundColor') backgroundColor: string;
 
-  // noinspection JSUnusedLocalSymbols
+  // injection
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {
     console.log('6. highlight.component.ts - HighlightDirective.constructor');
+    console.log(elementRef);
+    console.log(renderer);
   }
 
   ngOnInit(): void {

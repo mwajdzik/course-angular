@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   personAdded(event) {
-    console.log('personAdded');
+    console.log('personAdded: ' + event);
     this.caption = event + ' was just added!';
   }
 
