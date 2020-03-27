@@ -104,6 +104,8 @@ import * as _ from 'lodash';
 - depending on the level of definition we can have a single or multiple instances of a servive
 - defining in AppModule we will use the same instance application-wide
 - number of services that are created is determined by number of providers: [OurService]
+- Angular6+ allows to skip adding services to providers, it also can improve performance as such services are lazy loaded 
+    @Injectable({providedIn: 'root'})
 
 
 ## Cross-component communication:

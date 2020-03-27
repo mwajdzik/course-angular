@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {LoggingService} from "./logging.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  styleUrls: ['./app.component.less'],
+  providers: [LoggingService]
 })
 export class AppComponent implements OnInit {
 
@@ -13,8 +15,9 @@ export class AppComponent implements OnInit {
   clickCounter = 0;
   persons = ['Maciek', 'Madzia'];
 
-  constructor() {
+  constructor(private loggingService: LoggingService) {
     console.log('3. app.component.ts - AppComponent.constructor');
+    this.loggingService = loggingService;
   }
 
   ngOnInit() {
@@ -38,6 +41,6 @@ export class AppComponent implements OnInit {
 
   newItemCreated(item: { name: string, content: string }) {
     this.item = item;
-    console.log('newItemCreated: ' + item);
+    this.loggingService.logStatusChange('newItemCreated: ' + item);
   }
 }
