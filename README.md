@@ -39,6 +39,8 @@ ng build -prod --aot   (ahead of time - smaller final package size)
 ng github-pages:deply  (public repo when creating a key)
 
 ng test
+
+ng update
 ```
 
 npm install --save bootstrap
