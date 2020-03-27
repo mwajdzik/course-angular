@@ -1,3 +1,5 @@
+## [Angular CLI](https://cli.angular.io/)
+
 ```
 npm install -g @angular/cli
 
@@ -49,6 +51,36 @@ Modify .angular-cli.json to include it in styles section
     "../node_modules/bootstrap/dist/css/bootstrap.css"
 
 
+## [schematics](https://angular.io/guide/schematics)
+A tool for creating, modifying, and maintaining any software project. 
+Supports adding new functionality, code generation, process of updating to the latest version.
+For example - adding @angular/material to the Angular based project.  
+```
+ng add @angular/material
+ng add @angular/fire
+```
+
+
+## [angular.json](https://angular.io/guide/workspace-config)
+- we can add additional configurations - eg, beside dev and production and staging
+
+
+## [browserslist](https://github.com/browserslist/browserslist)
+Allows to prepare different files for different browser. Smaller code bundle for modern browsers.
+Check: Differential Loading
+
+
+## Projects 
+We can have a project with multiple subprojects.  
+
+```
+    ng new angular-shop --create-application=false
+    ng generate application backend
+    ng generate library my-components
+```
+Check [Library](https://angular.io/guide/creating-libraries)
+
+
 ## Lodash
 npm install --save lodash
 import * as _ from 'lodash'; 
@@ -72,6 +104,8 @@ import * as _ from 'lodash';
   styles: [``]
 })
 ```
+
+## Selectors
 
 - selector: 'rb-component'          tag
 - selector: '[rb-component]'        attribute
