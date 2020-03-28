@@ -1,1 +1,38 @@
-<h1>hello</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Two way data binding, <b>attribute</b> directive [ngStyle], [ngClass],
+          <b>structural</b> directive *ngIf, *ngFor
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">
+              <app-data-binding [persons]="persons" (newPersonAdded)="personAdded($event)">
+              </app-data-binding>
+            </div>
+            <div class="col-xs-6"
+                 *ngIf="newPerson"
+                 [ngStyle]="{backgroundColor: getTextColor()}"
+                 [ngClass]="{'text-present': newPerson}">
+              <p>{{newPerson}} was just added</p>
+
+              <button class="btn btn-primary" (click)="onOkButtonClick($event)">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <app-logger></app-logger>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
