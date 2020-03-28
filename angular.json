@@ -2,5 +2,242 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "A-Basics": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/A-Basics",
+      "sourceRoot": "projects/A-Basics/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/A-Basics",
+            "index": "projects/A-Basics/src/index.html",
+            "main": "projects/A-Basics/src/main.ts",
+            "polyfills": "projects/A-Basics/src/polyfills.ts",
+            "tsConfig": "projects/A-Basics/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/A-Basics/src/favicon.ico",
+              "projects/A-Basics/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "projects/A-Basics/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/A-Basics/src/environments/environment.ts",
+                  "with": "projects/A-Basics/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "A-Basics:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "A-Basics:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "A-Basics:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/A-Basics/src/test.ts",
+            "polyfills": "projects/A-Basics/src/polyfills.ts",
+            "tsConfig": "projects/A-Basics/tsconfig.spec.json",
+            "karmaConfig": "projects/A-Basics/karma.conf.js",
+            "assets": [
+              "projects/A-Basics/src/favicon.ico",
+              "projects/A-Basics/src/assets"
+            ],
+            "styles": [
+              "projects/A-Basics/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/A-Basics/tsconfig.app.json",
+              "projects/A-Basics/tsconfig.spec.json",
+              "projects/A-Basics/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/A-Basics/e2e/protractor.conf.js",
+            "devServerTarget": "A-Basics:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "A-Basics:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "P-Recipes": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/P-Recipes",
+      "sourceRoot": "projects/P-Recipes/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/P-Recipes",
+            "index": "projects/P-Recipes/src/index.html",
+            "main": "projects/P-Recipes/src/main.ts",
+            "polyfills": "projects/P-Recipes/src/polyfills.ts",
+            "tsConfig": "projects/P-Recipes/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/P-Recipes/src/favicon.ico",
+              "projects/P-Recipes/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "projects/P-Recipes/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/P-Recipes/src/environments/environment.ts",
+                  "with": "projects/P-Recipes/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "P-Recipes:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "P-Recipes:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "P-Recipes:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/P-Recipes/src/test.ts",
+            "polyfills": "projects/P-Recipes/src/polyfills.ts",
+            "tsConfig": "projects/P-Recipes/tsconfig.spec.json",
+            "karmaConfig": "projects/P-Recipes/karma.conf.js",
+            "assets": [
+              "projects/P-Recipes/src/favicon.ico",
+              "projects/P-Recipes/src/assets"
+            ],
+            "styles": [
+              "projects/P-Recipes/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/P-Recipes/tsconfig.app.json",
+              "projects/P-Recipes/tsconfig.spec.json",
+              "projects/P-Recipes/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/P-Recipes/e2e/protractor.conf.js",
+            "devServerTarget": "P-Recipes:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "P-Recipes:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "P-Recipes"
 }
