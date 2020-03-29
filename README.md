@@ -70,13 +70,19 @@ Allows to prepare different files for different browser. Smaller code bundle for
 Check: Differential Loading
 
 
+## [Testing](https://angular.io/guide/testing)
+
+
 ## Projects 
 We can have a project with multiple subprojects.  
 
 ```
     ng new angular-shop --create-application=false
+    ng generate application frontend
     ng generate application backend
     ng generate library my-components
+
+    ng serve frontend
 ```
 Check [Library](https://angular.io/guide/creating-libraries)
 

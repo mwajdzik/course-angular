@@ -6,7 +6,7 @@ export class LoggingService {
   @Output() log = new EventEmitter<string>();
 
   info(message: string) {
-    this.log.emit(message);
     console.log(message);
+    this.log.emit(message);
   }
 }

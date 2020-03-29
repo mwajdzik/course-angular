@@ -3,23 +3,54 @@
     <div class="col-xs-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Two way data binding, <b>attribute</b> directive [ngStyle], [ngClass],
-          <b>structural</b> directive *ngIf, *ngFor
+          Data binding, directives: <b>attribute</b> [ngStyle], [ngClass],
+          <b>structural</b> *ngIf, *ngFor
         </div>
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-6">
-              <app-data-binding [persons]="persons" (newPersonAdded)="personAdded($event)">
+              <app-data-binding [fruit]="fruit" (fruitAdded)="fruitAdded($event)">
               </app-data-binding>
             </div>
-            <div class="col-xs-6"
-                 *ngIf="newPerson"
-                 [ngStyle]="{backgroundColor: getTextColor()}"
-                 [ngClass]="{'text-present': newPerson}">
-              <p>{{newPerson}} was just added</p>
-
-              <button class="btn btn-primary" (click)="onOkButtonClick($event)">OK</button>
+            <div class="col-xs-6">
+              <div [ngStyle]="{color: getTextColor()}"
+                   [ngClass]="{'text-present': newFruit}"
+                   class="description">
+                <p appHighlight [defaultColor]="'beige'" [highlightColor]="'bisque'">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                Animi deserunt dignissimos, dolore dolorem earum expedita id maiores placeat sed!
+                Consectetur labore magnam maxime nesciunt nobis odio, sint. Dolorem, dolores, tempore.
+              </div>
+              <div *appUnless="fruit.length == 0">
+                <button class="btn btn-primary pull-right"
+                        (click)="onClearButtonClick($event)">Clear
+                </button>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Lifecycle of a component
+        </div>
+        <div class="panel-body">
+          <app-lifecycle [value]="newFruit">
+            <p #ngContentRef>Fruit added so far: {{fruit}}</p>
+          </app-lifecycle>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Different ways of getting field values {{item?.type}} {{item?.name}} {{item?.content}}
+        </div>
+        <div class="panel-body">
+          <div class="col-xs-12">
+            <app-refs (itemCreated)="newItemCreated($event)"></app-refs>
           </div>
         </div>
       </div>

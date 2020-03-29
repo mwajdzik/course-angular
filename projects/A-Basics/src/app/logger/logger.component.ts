@@ -21,7 +21,7 @@ import {LoggingService} from "../logging.service";
     }
 
     textarea {
-      height: 250px;
+      height: 400px;
       font-family: Courier, serif;
     }
   `]

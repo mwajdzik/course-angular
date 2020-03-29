@@ -1,3 +1,9 @@
 .text-present {
-  color: cadetblue;
+}
+
+.description {
+  padding: 1em;
+  background-color: honeydew;
+  border-radius: 5px;
+  margin-bottom: 1em;
 }

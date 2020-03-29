@@ -3,67 +3,60 @@ import {
   AfterContentInit,
   AfterViewChecked,
   AfterViewInit,
-  Component, ContentChild, ElementRef,
+  Component,
+  ContentChild,
+  ElementRef,
   Input,
   OnChanges,
   OnDestroy,
   OnInit,
   SimpleChanges
 } from '@angular/core';
+import {LoggingService} from "../logging.service";
 
 @Component({
   selector: 'app-lifecycle',
   template: `
-      <div>
-          <div class="row">
-              <ng-content>
-              </ng-content>
-          </div>
-          <div class="row">
-              Value: {{value}}
-          </div>
-          <div class="row">
-              <label class="control-label">
-                  Log:
-                  <textarea class="form-control">{{log}}</textarea>
-              </label>
-          </div>
+    <div>
+      <div class="row">
+        <ng-content>
+        </ng-content>
       </div>
+      <div class="row" *ngIf="value">
+        The latest added: {{value}}
+      </div>
+    </div>
 
   `,
   styles: [`
-      .row {
-          padding: 0 1em;
-      }
+    .row {
+      padding: 0 1em;
+    }
 
-      .control-label {
-          width: 100%;
-          margin-top: 1em;
-      }
+    .control-label {
+      width: 100%;
+      margin-top: 1em;
+    }
 
-      textarea {
-          height: 250px;
-          font-family: Courier, serif;
-      }
+    textarea {
+      height: 250px;
+      font-family: Courier, serif;
+    }
   `]
 })
 export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() value: string;
-
   @ContentChild('ngContentRef') ngContentRef: ElementRef;
 
-  log = '';
-
-  logMessage(message) {
-    const now = new Date().toLocaleTimeString();
-    this.log = `[${now}]  ${message}\n${this.log}`;
+  constructor(private loggingService: LoggingService) {
+    this.logMessage('5. lifecycle.component.ts - LifecycleComponent.constructor');
+    this.logMessage('101. LifecycleComponent.constructor');
   }
 
-  constructor() {
-    console.log('5. lifecycle.component.ts - LifecycleComponent.constructor');
-    this.logMessage('101. LifecycleComponent.constructor');
+  logMessage(message) {
+    this.loggingService.info(message);
   }
 
   // called after a bound input property changes - called many times
@@ -96,7 +89,6 @@ export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   // called after the view (and child views) has been checked
   ngAfterViewChecked(): void {
     console.log('108. ngAfterViewChecked called');
-    console.log(this.ngContentRef.nativeElement)
   }
 
   // called once the component is about to be destroyed

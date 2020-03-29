@@ -1,29 +1,24 @@
 import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {LoggingService} from "../logging.service";
 
 @Component({
-  selector: 'app-cockpit',
+  selector: 'app-refs',
   template: `
     <div class="col-xs-6">
       <label>Item Name
-        <input type="text" class="form-control" [(ngModel)]="newName" #localRef1>
+        <input type="text" class="form-control" [(ngModel)]="name" #localRef1>
       </label>
       <label>Content
-        <input type="text" class="form-control" [(ngModel)]="newContent" #localRef2>
+        <input type="text" class="form-control" [(ngModel)]="content" #localRef2>
       </label>
     </div>
     <div class="col-xs-6">
       <!-- Option #1 - ngModel directive -->
       <button class="btn btn-primary" (click)="onAddItem()">Add</button>
-
       <!-- Option #2 - local references -->
-      <button class="btn btn-primary" (click)="onAddItemWithRefs(localRef1, localRef2)">
-        Add with local refs
-      </button>
-
+      <button class="btn btn-primary" (click)="onAddItemWithRefs(localRef1, localRef2)">Add with local refs</button>
       <!-- Option #3 - ViewChild -->
-      <button class="btn btn-primary" (click)="onAddItemWithViewChild()">
-        Add with ViewChild
-      </button>
+      <button class="btn btn-primary" (click)="onAddItemWithViewChild()">Add with ViewChild</button>
     </div>
   `,
   styles: [`
@@ -37,25 +32,24 @@ import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/c
     }
   `]
 })
-export class CockpitComponent {
+export class RefsComponent {
 
-  newName = '';
-  newContent = '';
+  name = '';
+  content = '';
 
-  @Output() private itemCreated = new EventEmitter<{ name: string, content: string , type: string }>();
+  @Output() private itemCreated = new EventEmitter<{ name: string, content: string, type: string }>();
 
-  // static: true if not used in ngOnInit
-  @ViewChild('localRef1', {static: true}) private newNameRef: ElementRef;
-  @ViewChild('localRef2', {static: true}) private newContentRef: ElementRef;
+  @ViewChild('localRef1') private newNameRef: ElementRef;
+  @ViewChild('localRef2') private newContentRef: ElementRef;
 
-  constructor() {
-    console.log('8. cockpit.component.ts - CockpitComponent.constructor');
+  constructor(private loggingService: LoggingService) {
+    loggingService.info('8. refs.component.ts - CockpitComponent.constructor');
   }
 
   onAddItem() {
     this.itemCreated.emit({
-      name: this.newName,
-      content: this.newContent,
+      name: this.name,
+      content: this.content,
       type: 'ngModel'
     });
   }

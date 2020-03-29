@@ -1,4 +1,5 @@
 import {Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2} from '@angular/core';
+import {LoggingService} from "../logging.service";
 
 // Attribute Directive
 
@@ -13,8 +14,10 @@ export class HighlightDirective implements OnInit {
   @HostBinding('style.backgroundColor') backgroundColor: string;
 
   // injection
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
-    console.log('6. highlight.component.ts - HighlightDirective.constructor');
+  constructor(private elementRef: ElementRef,
+              private renderer: Renderer2,
+              private loggingService: LoggingService) {
+    this.loggingService.info('6. highlight.component.ts - HighlightDirective.constructor');
     console.log(elementRef);
     console.log(renderer);
   }

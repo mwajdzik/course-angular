@@ -6,20 +6,20 @@ import {LoggingService} from "../logging.service";
   template: `
     <div>
       <label style="width: 100%">
-        Add a New Person:
+        Add new:
         <input #newPersonEl
                type="text"
                class="form-control"
                style="width: 100%"
-               [(ngModel)]="newPerson"
+               [(ngModel)]="newFruit"
                (keyup.enter)="onEnter(newPersonEl.value)"/>
       </label>
     </div>
     <br>
     <div>
       <ul class="list-group">
-        <li *ngFor="let person of persons; let i = index" class="list-group-item">
-          <span>{{i + 1}}. {{person}}</span>
+        <li *ngFor="let f of fruit; let i = index" class="list-group-item">
+          <span>{{i + 1}}. {{f}}</span>
         </li>
       </ul>
     </div>
@@ -40,20 +40,19 @@ import {LoggingService} from "../logging.service";
 })
 export class DataBindingComponent {
 
-  @Input() persons: string[];
-  @Output() newPersonAdded = new EventEmitter<string>();
+  @Input() fruit: string[];
+  @Output() fruitAdded = new EventEmitter<string>();
 
-  public newPerson: string;
+  public newFruit: string;
 
   constructor(private loggingService: LoggingService) {
     loggingService.info('4. data-binding.component.ts - DataBindingComponent.constructor');
   }
 
-  onEnter(person: string) {
-    if (person !== '') {
-      this.persons.push(person);
-      this.newPerson = '';
-      this.newPersonAdded.emit(person);
+  onEnter(fruit: string) {
+    if (fruit !== '') {
+      this.newFruit = '';
+      this.fruitAdded.emit(fruit);
     }
   }
 }

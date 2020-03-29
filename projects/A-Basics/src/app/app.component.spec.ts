@@ -1,12 +1,28 @@
-import {async, TestBed} from '@angular/core/testing';
+import {async, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {AppComponent} from './app.component';
+import {DataService} from "./data.service";
+import {LifecycleComponent} from "./lifecycle/lifecycle.component";
+import {LoggerComponent} from "./logger/logger.component";
+import {DataBindingComponent} from "./databinding/data-binding.component";
+import {FormsModule} from "@angular/forms";
+import {LoggingService} from "./logging.service";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        DataBindingComponent,
+        LoggerComponent,
+        LifecycleComponent
       ],
+      imports: [
+        FormsModule
+      ],
+      providers: [
+        LoggingService,
+        DataService
+      ]
     }).compileComponents();
   }));
 
@@ -16,16 +32,46 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'A-Basics'`, () => {
+  it(`should have newFruit empty`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.newPerson).toEqual('A-Basics');
+    fixture.detectChanges();
+    expect(app.newFruit).toEqual('');
   });
 
-  it('should render title', () => {
+  it('should render the list of fruit', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('A-Basics app is running!');
+    expect(compiled.querySelector('.panel-heading').textContent).toContain('Data binding');
   });
+
+  it('should load fruit from the data service - async', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = <AppComponent>fixture.debugElement.componentInstance;
+    const dataService = fixture.debugElement.injector.get<DataService>(DataService);
+
+    let spy = spyOn<DataService>(dataService, 'getFruit')
+      .and.returnValue(Promise.resolve(['banana', 'kiwi']));
+
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      expect(app.fruit).toEqual(['banana', 'kiwi']);
+    });
+  }));
+
+  it('should load fruit from the data service - fakeAsync', fakeAsync(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = <AppComponent>fixture.debugElement.componentInstance;
+    const dataService = fixture.debugElement.injector.get<DataService>(DataService);
+
+    let spy = spyOn<DataService>(dataService, 'getFruit')
+      .and.returnValue(Promise.resolve(['banana', 'kiwi']));
+
+    fixture.detectChanges();
+    tick();
+
+    expect(app.fruit).toEqual(['banana', 'kiwi']);
+  }));
 });
