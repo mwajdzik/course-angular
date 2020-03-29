@@ -17,7 +17,7 @@ export class HighlightDirective implements OnInit {
   constructor(private elementRef: ElementRef,
               private renderer: Renderer2,
               private loggingService: LoggingService) {
-    this.loggingService.info('6. highlight.component.ts - HighlightDirective.constructor');
+    this.loggingService.info('highlight.component.ts - HighlightDirective.constructor');
     console.log(elementRef);
     console.log(renderer);
   }

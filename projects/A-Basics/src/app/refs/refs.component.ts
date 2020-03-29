@@ -43,7 +43,7 @@ export class RefsComponent {
   @ViewChild('localRef2') private newContentRef: ElementRef;
 
   constructor(private loggingService: LoggingService) {
-    loggingService.info('8. refs.component.ts - CockpitComponent.constructor');
+    loggingService.info('refs.component.ts - CockpitComponent.constructor');
   }
 
   onAddItem() {

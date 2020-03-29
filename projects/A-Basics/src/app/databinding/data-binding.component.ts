@@ -7,12 +7,8 @@ import {LoggingService} from "../logging.service";
     <div>
       <label style="width: 100%">
         Add new:
-        <input #newPersonEl
-               type="text"
-               class="form-control"
-               style="width: 100%"
-               [(ngModel)]="newFruit"
-               (keyup.enter)="onEnter(newPersonEl.value)"/>
+        <input #newPersonEl type="text" class="form-control"  style="width: 100%"
+               [(ngModel)]="newFruit" (keyup.enter)="onEnter(newPersonEl.value)"/>
       </label>
     </div>
     <br>
@@ -46,7 +42,7 @@ export class DataBindingComponent {
   public newFruit: string;
 
   constructor(private loggingService: LoggingService) {
-    loggingService.info('4. data-binding.component.ts - DataBindingComponent.constructor');
+    loggingService.info('data-binding.component.ts - DataBindingComponent.constructor');
   }
 
   onEnter(fruit: string) {

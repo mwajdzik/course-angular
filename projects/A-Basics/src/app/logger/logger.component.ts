@@ -28,10 +28,10 @@ import {LoggingService} from "../logging.service";
 })
 export class LoggerComponent {
 
-  log = '';
+  public log = '';
 
   constructor(private loggingService: LoggingService) {
-    loggingService.info('5. logger.component.ts - LoggerComponent.constructor - subscribing');
+    loggingService.info('logger.component.ts - LoggerComponent.constructor - subscribing');
 
     loggingService.log.subscribe(message => {
       this.logMessage(message);
