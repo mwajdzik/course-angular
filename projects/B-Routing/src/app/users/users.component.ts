@@ -12,7 +12,7 @@ import {UsersService} from './users.service';
           <li *ngFor="let user of users" class="list-group-item">
             <span>{{user.name}}</span>
             <a [routerLink]="[user.id]" [queryParams]="{allowEdit: user.id % 2 == 0}" fragment="loading">
-              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-edit" aria-hidden="true" style="padding-left: 5px;"></span>
             </a>
           </li>
         </ul>

@@ -13,7 +13,11 @@ import {AuthService} from '../auth.service';
       <button class="btn btn-default" (click)="onLogout()">Logout</button>
     </div>
   `,
-  styles: []
+  styles: [`
+    .btn {
+      margin-right: 0.5em;
+    }
+  `]
 })
 export class HomeComponent {
 

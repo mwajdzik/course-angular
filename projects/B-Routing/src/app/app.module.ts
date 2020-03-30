@@ -27,7 +27,6 @@ import {UserResolverService} from './users/user-resolver.service';
   ],
   imports: [
     BrowserModule,
-    // RouterModule.forRoot(appRoutes) - moved to a separate file
     AppRoutingModule
   ],
   providers: [UsersService, AuthGuardService, AuthService, CanDeactivateGuardService, UserResolverService],

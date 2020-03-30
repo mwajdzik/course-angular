@@ -6,16 +6,20 @@ import {ServersComponent} from './servers/servers.component';
 import {UsersComponent} from './users/users.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {UserComponent} from './users/user/user.component';
-import {AuthGuardService} from './auth-guard.service';
 import {CanDeactivateGuardService} from './users/edit-user/can-deactivate-guard.service';
 import {UserResolverService} from './users/user-resolver.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', redirectTo: ''},
-  {path: 'servers', component: ServersComponent, canActivate: [AuthGuardService]},
   {
-    path: 'users', component: UsersComponent, canActivateChild: [AuthGuardService], children: [
+    path: 'servers', component: ServersComponent,
+    // canActivate: [AuthGuardService]
+  },
+  {
+    path: 'users', component: UsersComponent,
+    // canActivateChild: [AuthGuardService],
+    children: [
       {path: ':id', component: UserComponent, resolve: {user: UserResolverService}},
       {path: ':id/edit', component: EditUserComponent, canDeactivate: [CanDeactivateGuardService]}
     ]
@@ -24,9 +28,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes, {useHash: false})
-  ],
+  imports: [RouterModule.forRoot(appRoutes, {useHash: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
