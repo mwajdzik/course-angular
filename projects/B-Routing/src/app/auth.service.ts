@@ -14,6 +14,8 @@ export class AuthService {
   }
 
   isAuthenticated() {
+    console.log('isAuthenticated');
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.loggedIn);

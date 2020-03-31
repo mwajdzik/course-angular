@@ -158,6 +158,18 @@ import * as _ from 'lodash';
 - app.modules.ts - ```RouterModule.forRoot(appRoutes)```
 - ```<router-outlet></router-outlet>```
 - children require their own ```<router-outlet></router-outlet>```
+- main directives and services
+    - routerLink
+    - queryParams
+    - fragment
+    - routerLinkActive
+    - routerLinkActiveOptions
+    
+    - Router            router.navigate(['edit', 1], {relativeTo, queryParams, fragment})
+    - ActivatedRoute    route.snapshot 
+                        route.params.subscribe(), route.snapshot.params
+                        route.queryParams.subscribe(), route.snapshot.queryParams
+                        route.fragment.subscribe(), route.snapshot.fragment
 
 
 ## Forms:

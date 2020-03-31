@@ -9,7 +9,7 @@
           <a routerLink="/servers">Servers</a>
         </li>
         <li role="presentation" routerLinkActive="active">
-          <a [routerLink]="['users']">Users</a>
+          <a [routerLink]="['users']" [queryParams]="{my_param: '23'}" [fragment]="'my_fragment'">Users</a>
         </li>
       </ul>
     </div>

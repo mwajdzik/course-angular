@@ -15,7 +15,8 @@ export class EditUserComponent implements CanComponentDeactivate {
 
   private changesSaved = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router,
+              private route: ActivatedRoute) {
   }
 
   onSaveChanges() {

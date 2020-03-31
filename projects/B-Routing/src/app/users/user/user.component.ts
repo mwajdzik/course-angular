@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Data, Params, Router} from '@angular/router';
 import {UsersService} from '../users.service';
-import {Subscription} from 'rxjs';
+// import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -9,9 +9,6 @@ import {Subscription} from 'rxjs';
     <h3>{{user.name}}</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam, atque consectetur dolor earum enim eos
       facilis incidunt, inventore iste itaque laboriosam magni placeat quasi rem repudiandae, sit temporibus ullam?</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, ex impedit nulla officiis optio placeat
-      quod! Aliquam aspernatur cupiditate dolorem eligendi, itaque molestiae nam optio quae sint tempore unde
-      veritatis?</p>
     <div>
       <button class="btn btn-primary" (click)="onEdit()" [disabled]="!allowEdit">Edit</button>
     </div>
@@ -31,7 +28,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   user;
   allowEdit = false;
-  private paramsSubscription: Subscription;
+  // private paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -46,19 +43,21 @@ export class UserComponent implements OnInit, OnDestroy {
       this.allowEdit = queryParams['allowEdit'] === 'true';
     });
 
-    // with Resolver approach
+    // with Resolver approach:
     this.route.data.subscribe((data: Data) => {
       this.user = data['user'];
     });
 
-    // without Resolver
+    // without Resolver:
     // this.loadUser(this.route.snapshot.params['id']);
+    //
     // this.paramsSubscription = this.route.params.subscribe((params: Params) => {
     //   this.loadUser(params['id']);
     // });
   }
 
   ngOnDestroy() {
+    // Angular does it automatically for us
     // this.paramsSubscription.unsubscribe();
   }
 
