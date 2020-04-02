@@ -33,6 +33,7 @@ export class EditUserComponent implements CanComponentDeactivate {
     }
   }
 
+  // noinspection JSMethodCanBeStatic
   private changesDetectedInForm() {
     return true;
   }

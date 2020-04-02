@@ -14,10 +14,12 @@ import {UsersService} from '../users.service';
     </div>
     <hr>
     <div class="btn-group" role="group">
-      <a [routerLink]="['/users', getPrevUserId()]" class="btn btn-default">
+      <a [routerLink]="['/users', getPrevUserId()]"
+         class="btn btn-default">
         <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
       </a>
-      <a [routerLink]="['/users', getNextUserId()]" class="btn btn-default">
+      <a [routerLink]="['/users', getNextUserId()]"
+         class="btn btn-default">
         <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
       </a>
     </div>

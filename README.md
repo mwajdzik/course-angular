@@ -165,11 +165,16 @@ import * as _ from 'lodash';
     - routerLinkActive
     - routerLinkActiveOptions
     
-    - Router            router.navigate(['edit', 1], {relativeTo, queryParams, fragment})
+    - Router            router.navigate(['edit', 1], {relativeTo, queryParams, fragment, queryParamsHandling})
     - ActivatedRoute    route.snapshot 
                         route.params.subscribe(), route.snapshot.params
                         route.queryParams.subscribe(), route.snapshot.queryParams
                         route.fragment.subscribe(), route.snapshot.fragment
+
+- guards
+    - CanActivate
+    - CanDeactivate 
+    - Resolve
 
 
 ## Forms:
