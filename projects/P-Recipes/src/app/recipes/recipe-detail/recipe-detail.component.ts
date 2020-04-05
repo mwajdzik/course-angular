@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Recipe} from "../recipe.model";
 
 @Component({
@@ -8,12 +8,11 @@ import {Recipe} from "../recipe.model";
 })
 export class RecipeDetailComponent implements OnInit {
 
-  public recipe: Recipe;
+  @Input() recipe: Recipe;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.recipe = new Recipe('Pork', 'A tasty one', 'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg')
   }
 }
