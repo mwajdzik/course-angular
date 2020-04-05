@@ -1,0 +1,85 @@
+<h1>Template Driven</h1>
+
+<!-- ngForm - we want to get access to a Form object created by Angular -->
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div ngModelGroup="userData" #userData="ngModelGroup">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username"
+             [ngModel]="user.name" name="username"
+             pattern="[\w]+" required>
+      <button class="btn btn-default"
+              style="margin-top: 5px;"
+              type="button" (click)="onSuggest()">
+        Suggest
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-Mail</label>
+      <input type="text" class="form-control" id="email"
+             [ngModel]="user.email" name="email"
+             email required
+             #email="ngModel">
+
+      <div *ngIf="!email.valid && email.touched" class="help-block">
+        Please provide a valid email.
+      </div>
+    </div>
+
+    <div *ngIf="!userData.valid && userData.touched">
+      User data is invalid.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password"
+           [ngModel]="user.password" name="password"
+           required
+           #password="ngModel">
+
+    <div *ngIf="!password.valid && password.touched" class="help-block">
+      Please provide a valid password.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="secret">Secret Question</label>
+    <select class="form-control" id="secret"
+            [ngModel]="user.secret" name="secret">
+      <option value="pet">Your first pet?</option>
+      <option value="teacher">Your first teacher?</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="answer">Question Answer</label>
+    <textarea class="form-control" id="answer" rows="3"
+              [ngModel]="user.answer" name="answer"
+              required>
+    </textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Gender</label>
+    <div class="radio" *ngFor="let g of gender">
+      <label>
+        <input type="radio" name="gender"
+               [ngModel]="user.gender"
+               [value]="g">
+        {{g}}
+      </label>
+    </div>
+  </div>
+
+  <hr>
+
+  <button type="button" class="btn btn-default"
+          (click)="f.reset()">Reset
+  </button>
+
+  <button type="submit" class="btn btn-primary"
+          [disabled]="!f.valid">Submit
+  </button>
+</form>

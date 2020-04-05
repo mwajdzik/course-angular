@@ -200,7 +200,7 @@ Remember about unsubscribing!
 
 ## Testing:
 - ```ng test```
-- https://angular.io/docs/ts/latest/guide/testing.html
+- https://angular.io/guide/testing
 - https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
 
 
@@ -216,6 +216,7 @@ npm install --save hammerjs
 
 ## Deployment
 - ng build --prod --aot 
+- check environments folder
 - example.com/my-app      ```<base href="/my-app">```
 - return index.html in case of 404 errors
 - AWS S3 hosting https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
@@ -285,6 +286,3 @@ npm install --save hammerjs
 - (!!!) https://github.com/brillout/awesome-angular-components
 - Drag&Drop: https://github.com/akserg/ng2-dnd
 
-
-## Testing
-- https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
