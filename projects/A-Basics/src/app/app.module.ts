@@ -11,6 +11,7 @@ import {LifecycleComponent} from "./lifecycle/lifecycle.component";
 import {HighlightDirective} from "./directive/highlight.directive";
 import {UnlessDirective} from "./directive/unless.directive";
 import {RefsComponent} from "./refs/refs.component";
+import { ObservableComponent } from './observable/observable.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {RefsComponent} from "./refs/refs.component";
     LoggerComponent,
     HighlightDirective,
     UnlessDirective,
-    RefsComponent
+    RefsComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,

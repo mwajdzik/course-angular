@@ -65,7 +65,7 @@ export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
 
   // called every time the projected content has been checked
   ngAfterContentChecked(): void {
-    this.logMessage('ngAfterContentChecked called');
+    console.log('ngAfterContentChecked called');
   }
 
   // called after the component's view (and child views) has been initialized

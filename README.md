@@ -177,6 +177,12 @@ import * as _ from 'lodash';
     - Resolve
 
 
+## Observable
+import {interval} from 'rxjs'
+
+Remember about unsubscribing! 
+
+
 ## Forms:
 - template driven approach - Angular infers the Form object from the DOM
 - reactive - Form is created programmatically and synchronized with the DOM
