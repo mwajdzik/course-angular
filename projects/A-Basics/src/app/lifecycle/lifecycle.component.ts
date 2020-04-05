@@ -13,6 +13,8 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {LoggingService} from "../logging.service";
+import {SubjectService} from "../subject/subject.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-lifecycle',
@@ -22,7 +24,7 @@ import {LoggingService} from "../logging.service";
         <ng-content></ng-content>
       </div>
       <div class="row" *ngIf="value">
-        The latest added: {{value}}
+        The latest added: {{value}} ({{valueFromSubject}})
       </div>
     </div>
   `,
@@ -36,9 +38,13 @@ export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() value: string;
+  valueFromSubject: string;
   @ContentChild('ngContentRef') ngContentRef: ElementRef;
 
-  constructor(private loggingService: LoggingService) {
+  private subjectServiceSubscription: Subscription;
+
+  constructor(private subjectService: SubjectService,
+              private loggingService: LoggingService) {
     this.logMessage('lifecycle.component.ts - LifecycleComponent.constructor');
   }
 
@@ -56,6 +62,10 @@ export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   // called once the component is initialized (after constructor)
   ngOnInit() {
     this.logMessage('ngOnInit called');
+
+    this.subjectServiceSubscription = this.subjectService.subject.subscribe((newFruit) => {
+      this.valueFromSubject = newFruit;
+    });
   }
 
   // called after content (ng-content) has been projected into view
@@ -81,5 +91,7 @@ export class LifecycleComponent implements OnChanges, OnInit, AfterContentInit,
   // called once the component is about to be destroyed
   ngOnDestroy(): void {
     this.logMessage('ngOnDestroy called');
+
+    this.subjectServiceSubscription.unsubscribe();
   }
 }

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {LoggingService} from "../logging.service";
+import {SubjectService} from "../subject/subject.service";
 
 @Component({
   selector: 'app-data-binding',
@@ -7,7 +8,7 @@ import {LoggingService} from "../logging.service";
     <div>
       <label style="width: 100%">
         Add new:
-        <input #newPersonEl type="text" class="form-control"  style="width: 100%"
+        <input #newPersonEl type="text" class="form-control" style="width: 100%"
                [(ngModel)]="newFruit" (keyup.enter)="onEnter(newPersonEl.value)"/>
       </label>
     </div>
@@ -41,7 +42,8 @@ export class DataBindingComponent {
 
   public newFruit: string;
 
-  constructor(private loggingService: LoggingService) {
+  constructor(private subjectService: SubjectService,
+              private loggingService: LoggingService) {
     loggingService.info('data-binding.component.ts - DataBindingComponent.constructor');
   }
 
@@ -49,6 +51,7 @@ export class DataBindingComponent {
     if (fruit !== '') {
       this.newFruit = '';
       this.fruitAdded.emit(fruit);
+      this.subjectService.subject.next(fruit);
     }
   }
 }

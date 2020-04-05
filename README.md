@@ -135,6 +135,7 @@ import * as _ from 'lodash';
 - structural - interact with the current view container and change the structure of the DOM (ngIf, ngFor, ngSwitch)   
              - leading star, only one structural directive is allowed on a given element
 
+
 ## Pipes
 - used to transform a value
 - https://angular.io/api?type=pipe
@@ -143,7 +144,7 @@ import * as _ from 'lodash';
 
 
 ## Services:
-- depending on the level of definition we can have a single or multiple instances of a servive
+- depending on the level of definition we can have a single or multiple instances of a service
 - defining in AppModule we will use the same instance application-wide
 - number of services that are created is determined by number of providers: [OurService]
 - Angular6+ allows to skip adding services to providers, it also can improve performance as such services are lazy loaded 
@@ -151,7 +152,7 @@ import * as _ from 'lodash';
 
 
 ## Cross-component communication:
-- add a service with @Output EventEmitter, and in the listening component subscribe to it
+- add a service with @Output EventEmitter, and in the listening component subscribe to it (better approach involves Subjects)
 
 
 ## Routing:
@@ -178,7 +179,11 @@ import * as _ from 'lodash';
 
 
 ## Observable
+
+```
 import {interval} from 'rxjs'
+import {filter, map, skip} from "rxjs/operators";
+```
 
 Remember about unsubscribing! 
 
