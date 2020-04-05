@@ -195,7 +195,7 @@ Remember about unsubscribing!
     - async validator
     - dynamic form
     - reacting to change (subscriptions)
-- https://angular.io/api/forms/Validators
+- [validators](https://angular.io/api/forms/Validators)
 
 
 ## Testing:

@@ -1,13 +1,17 @@
 <h1>Template Driven</h1>
 
-<!-- ngForm - we want to get access to a Form object created by Angular -->
+<!-- ngForm - we want to get access to the Form object created by Angular -->
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
   <div ngModelGroup="userData" #userData="ngModelGroup">
     <div class="form-group">
       <label for="username">Username</label>
       <input type="text" class="form-control" id="username"
              [ngModel]="user.name" name="username"
-             pattern="[\w]+" required>
+             pattern="[\w]+" required
+             #username="ngModel">
+      <div *ngIf="!username.valid && username.touched" class="help-block">
+        Please provide a valid user name.
+      </div>
       <button class="btn btn-default"
               style="margin-top: 5px;"
               type="button" (click)="onSuggest()">
@@ -25,10 +29,6 @@
       <div *ngIf="!email.valid && email.touched" class="help-block">
         Please provide a valid email.
       </div>
-    </div>
-
-    <div *ngIf="!userData.valid && userData.touched">
-      User data is invalid.
     </div>
   </div>
 
@@ -83,3 +83,9 @@
           [disabled]="!f.valid">Submit
   </button>
 </form>
+
+<hr>
+
+<div>
+  <pre [ngStyle]="{'background-color': getBackgroundColor()}">{{formModel}}</pre>
+</div>

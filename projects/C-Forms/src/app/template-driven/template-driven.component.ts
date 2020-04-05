@@ -13,14 +13,15 @@ import {NgForm} from '@angular/forms';
 export class TemplateDrivenComponent {
 
   @ViewChild('f') ngForm: NgForm;
+  formModel: string;
 
   user = {
     name: 'Maciek',
     email: 'amw061@gmail.com',
     gender: 'male',
-    password: '',
-    secret: 'teacher',
-    answer: ''
+    password: '123',
+    secret: 'pet',
+    answer: 'Koala'
   };
 
   gender = [
@@ -43,5 +44,19 @@ export class TemplateDrivenComponent {
 
     // or
     this.user.name = 'SuperUser';
+  }
+
+  ngAfterContentChecked(): void {
+    if (this.ngForm) {
+      this.formModel = JSON.stringify(this.ngForm.value, null, 4);
+    }
+  }
+
+  getBackgroundColor() {
+    if (this.ngForm) {
+      return this.ngForm.valid ? 'darkseagreen' : 'indianred';
+    }
+
+    return 'transparent';
   }
 }
