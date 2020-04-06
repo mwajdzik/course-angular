@@ -4,32 +4,37 @@ import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-data-driven',
-  templateUrl: 'data-driven.component.html'
+  templateUrl: 'data-driven.component.html',
+  styles: [`
+    .form-control.ng-invalid.ng-touched {
+      border: 1px red solid;
+    }
+
+
+    .form-control.ng-pending.ng-touched {
+      border: 1px limegreen solid;
+    }
+  `]
 })
 export class DataDrivenComponent implements OnInit {
 
-  myForm: FormGroup;
-  gender = ['female', 'male'];
+  public myForm: FormGroup;
+  public gender = ['female', 'male'];
+  private forbiddenNames = ['Kuba', 'Ewa'];
   private forbiddenEmail = 'amw061@gmail.com';
 
   constructor() {
   }
 
-  static myEmailValidator(control: FormControl): { [s: string]: boolean } {
-    if (control.value && !control.value.match(/[\w]+@[\w]+\.[\w]{2,3}/)) {
-      return {invalid: true};
-    }
-
-    return null;  // valid
-  }
-
   ngOnInit() {
     this.myForm = new FormGroup({
       userData: new FormGroup({
-        name: new FormControl(null, Validators.required),
+        name: new FormControl(null, [
+          Validators.required,
+          this.forbiddenNamesValidator.bind(this)
+        ]),
         email: new FormControl(null, [
           Validators.required,
-          Validators.email,
           DataDrivenComponent.myEmailValidator,
           Validators.pattern(/[\w]+@[\w]+\.[\w]{2,3}/)
         ], [
@@ -44,6 +49,8 @@ export class DataDrivenComponent implements OnInit {
       ])
     });
 
+    // Listeners:
+
     this.myForm.valueChanges.subscribe(
       (data: any) => console.log(data)
     );
@@ -56,6 +63,8 @@ export class DataDrivenComponent implements OnInit {
       (data: any) => console.log('Gender changed', data)
     );
 
+    // Initial values
+    
     this.myForm.setValue({
       userData: {
         name: 'Maciek',
@@ -92,10 +101,31 @@ export class DataDrivenComponent implements OnInit {
       .push(new FormControl('', Validators.required));
   }
 
+  getHobbiesControls() {
+    return (<FormArray>this.myForm.get('hobbies')).controls;
+  }
+
+  static myEmailValidator(control: FormControl): { [s: string]: boolean } {
+    if (control.value && !control.value.match(/[\w]+@[\w]+\.[\w]{2,3}/)) {
+      return {invalid: true};
+    }
+
+    return null;  // valid
+  }
+
+  forbiddenNamesValidator(control: FormControl): { [s: string]: boolean } {
+    if (this.forbiddenNames.indexOf(control.value) !== -1) {
+      return {'nameIsForbidden': true};
+    }
+
+    return null;
+  }
+
   forbiddenEmailsValidator(control: FormControl): Promise<any> | Observable<any> {
     return new Promise<any>(
       (resolve, reject) => {
         setTimeout(() => {
+          console.log('boom');
           if (control.value === this.forbiddenEmail) {
             resolve({invalid: true});
           } else {

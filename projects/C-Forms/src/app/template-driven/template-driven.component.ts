@@ -57,6 +57,6 @@ export class TemplateDrivenComponent {
       return this.ngForm.valid ? 'darkseagreen' : 'indianred';
     }
 
-    return 'transparent';
+    return 'darkseagreen';
   }
 }
