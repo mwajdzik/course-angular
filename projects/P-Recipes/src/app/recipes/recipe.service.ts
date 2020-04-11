@@ -10,10 +10,10 @@ export class RecipeService {
   }
 
   private recipes: Recipe[] = [
-    new Recipe('Pork', 'A tasty one',
+    new Recipe('Pork', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet cum illo itaque, officia quam reprehenderit totam? Accusamus, ad ea, et fugit iure maiores molestias necessitatibus sapiente sed sequi vero!',
       'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg',
       [new Ingredient('Meet', 1), new Ingredient('French Fries', 20)]),
-    new Recipe('Chicken', 'A tasty one',
+    new Recipe('Chicken', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet, autem dolores eius explicabo illo iusto laboriosam libero maiores necessitatibus officia optio placeat praesentium qui recusandae reiciendis rerum veritatis voluptatibus!',
       'https://assets.bonappetit.com/photos/5d7296eec4af4d0008ad1263/3:2/w_1280,c_limit/Basically-Gojuchang-Chicken-Recipe-Wide.jpg',
       [new Ingredient('Meet', 1), new Ingredient('Potato', 5)])
   ];
