@@ -141,6 +141,7 @@ import * as _ from 'lodash';
 - https://angular.io/api?type=pipe
 - ``` {{ username | uppercase }} ```
 - async pipe for Promises
+- check the 'pure' parameter of a pipe
 
 
 ## Services:

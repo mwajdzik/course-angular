@@ -11,7 +11,9 @@ import {LifecycleComponent} from "./lifecycle/lifecycle.component";
 import {HighlightDirective} from "./directive/highlight.directive";
 import {UnlessDirective} from "./directive/unless.directive";
 import {RefsComponent} from "./refs/refs.component";
-import { ObservableComponent } from './observable/observable.component';
+import {ObservableComponent} from './observable/observable.component';
+import {PipesComponent} from './pipes/pipes.component';
+import {ShortenPipe} from "./pipes/shorten.pipe";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ObservableComponent } from './observable/observable.component';
     HighlightDirective,
     UnlessDirective,
     RefsComponent,
-    ObservableComponent
+    ObservableComponent,
+    PipesComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
