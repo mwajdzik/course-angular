@@ -205,41 +205,12 @@ Remember about unsubscribing!
 - https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
 
 
-## Material Design
-- https://material.angular.io/
-npm install --save @angular/material @angular/cdk
-npm install --save @angular/animations                      (if missing)
-npm install --save @angular/material-moment-adapter
-- https://material.angular.io/guide/getting-started
-- imports: [BrowserAnimationsModule]
-npm install --save hammerjs
-
-
 ## Deployment
 - ng build --prod --aot 
 - check environments folder
 - example.com/my-app      ```<base href="/my-app">```
 - return index.html in case of 404 errors
 - AWS S3 hosting https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
-
-
-## Firebase
-- https://github.com/angular/angularfire2/blob/master/docs/install-and-setup.md
-- npm install angularfire2 firebase --save
-
-- Firestore is a document db (like mongoDB) - collections and documents
-
-- constructor(private db: AngularFirestore) {}
-- valueChanges returns import {Observable} from 'rxjs/Observable'; doesn't include id (key) 
-- this.db.collection('ng-fitness_available-exercises').valueChanges().subscribe((r) => {});
-
-- snapshotChanges returns import {Observable} from 'rxjs/Observable'; includes id (key)
-
-- this.db.collection('ng-fitness_finished-exercises').add(exercise)
-
-- this.db.doc('ng-fitness_finished-exercises/' + id).update({lastUpdated: new Date()})
-
-![alt text](./.images/firebase.jpg)
 
 
 ## Modules
@@ -274,16 +245,40 @@ npm install --save hammerjs
 
 ![alt text](./.images/ngrx.jpg)
 
-# Bootstrap
+
+## Bootstrap
 - npm install --save bootstrap font-awesome
 - npm install --save @ng-bootstrap/ng-bootstrap
 
 
-# Layout - flex
+## Layout - flex
 - npm install --save @angular/flex-layout
 
 
-# Libs:
+## Material Design
+ng add @angular/material
+
+
+## Firebase
+- https://github.com/angular/angularfire2/blob/master/docs/install-and-setup.md
+- npm install angularfire2 firebase --save
+
+- Firestore is a document db (like mongoDB) - collections and documents
+
+- constructor(private db: AngularFirestore) {}
+- valueChanges returns import {Observable} from 'rxjs/Observable'; doesn't include id (key) 
+- this.db.collection('ng-fitness_available-exercises').valueChanges().subscribe((r) => {});
+
+- snapshotChanges returns import {Observable} from 'rxjs/Observable'; includes id (key)
+
+- this.db.collection('ng-fitness_finished-exercises').add(exercise)
+
+- this.db.doc('ng-fitness_finished-exercises/' + id).update({lastUpdated: new Date()})
+
+![alt text](./.images/firebase.jpg)
+
+
+## Libs:
 - (!!!) https://github.com/brillout/awesome-angular-components
 - Drag&Drop: https://github.com/akserg/ng2-dnd
 
