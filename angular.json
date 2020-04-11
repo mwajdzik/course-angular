@@ -378,7 +378,7 @@
               "projects/P-Recipes/src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
               "projects/P-Recipes/src/styles.css"
             ],
             "scripts": []
