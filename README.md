@@ -55,10 +55,28 @@ Modify .angular-cli.json to include it in styles section
 A tool for creating, modifying, and maintaining any software project. 
 Supports adding new functionality, code generation, process of updating to the latest version.
 For example - adding @angular/material to the Angular based project.  
-```
-ng add @angular/material
-ng add @angular/fire
-```
+
+- [Material Design](https://material.angular.io/)
+    - ng add @angular/material
+
+- Firebase
+    - ng add @angular/fire
+
+
+## Libraries 
+- Bootstrap
+    - npm install --save bootstrap font-awesome
+    - npm install --save @ng-bootstrap/ng-bootstrap
+
+- Layout - flex
+    - npm install --save @angular/flex-layout
+
+- Lodash
+    - npm install --save lodash
+    - import * as _ from 'lodash'; 
+    
+- Moment
+    - npm install --save moment @angular/material-moment-adapter
 
 
 ## [angular.json](https://angular.io/guide/workspace-config)
@@ -85,11 +103,6 @@ We can have a project with multiple subprojects.
     ng serve frontend
 ```
 Check [Library](https://angular.io/guide/creating-libraries)
-
-
-## Lodash
-npm install --save lodash
-import * as _ from 'lodash'; 
  
 
 ## Lifecycle:
@@ -244,19 +257,6 @@ Remember about unsubscribing!
 ![alt text](./.images/redux.jpg)
 
 ![alt text](./.images/ngrx.jpg)
-
-
-## Bootstrap
-- npm install --save bootstrap font-awesome
-- npm install --save @ng-bootstrap/ng-bootstrap
-
-
-## Layout - flex
-- npm install --save @angular/flex-layout
-
-
-## Material Design
-ng add @angular/material
 
 
 ## Firebase
