@@ -476,6 +476,123 @@
         }
       }
     },
+    "P-FitnessTracker": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/P-FitnessTracker",
+      "sourceRoot": "projects/P-FitnessTracker/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/P-FitnessTracker",
+            "index": "projects/P-FitnessTracker/src/index.html",
+            "main": "projects/P-FitnessTracker/src/main.ts",
+            "polyfills": "projects/P-FitnessTracker/src/polyfills.ts",
+            "tsConfig": "projects/P-FitnessTracker/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/P-FitnessTracker/src/favicon.ico",
+              "projects/P-FitnessTracker/src/assets"
+            ],
+            "styles": [
+              "projects/P-FitnessTracker/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/P-FitnessTracker/src/environments/environment.ts",
+                  "with": "projects/P-FitnessTracker/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "P-FitnessTracker:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "P-FitnessTracker:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "P-FitnessTracker:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/P-FitnessTracker/src/test.ts",
+            "polyfills": "projects/P-FitnessTracker/src/polyfills.ts",
+            "tsConfig": "projects/P-FitnessTracker/tsconfig.spec.json",
+            "karmaConfig": "projects/P-FitnessTracker/karma.conf.js",
+            "assets": [
+              "projects/P-FitnessTracker/src/favicon.ico",
+              "projects/P-FitnessTracker/src/assets"
+            ],
+            "styles": [
+              "projects/P-FitnessTracker/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/P-FitnessTracker/tsconfig.app.json",
+              "projects/P-FitnessTracker/tsconfig.spec.json",
+              "projects/P-FitnessTracker/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/P-FitnessTracker/e2e/protractor.conf.js",
+            "devServerTarget": "P-FitnessTracker:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "P-FitnessTracker:serve:production"
+            }
+          }
+        }
+      }
+    },
     "P-Recipes": {
       "projectType": "application",
       "schematics": {},
@@ -595,5 +712,5 @@
       }
     }
   },
-  "defaultProject": "P-Recipes"
+  "defaultProject": "P-FitnessTracker"
 }
