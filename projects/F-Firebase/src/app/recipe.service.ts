@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
-import {map} from "rxjs/operators";
-import {HttpClient} from "@angular/common/http";
+import {catchError, map} from "rxjs/operators";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {throwError} from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -15,13 +16,19 @@ export class RecipeService {
   fetchRecipes() {
     return this.http
       .get<{ [key: string]: RawRecipe }>(this.url)
-      .pipe(map(res => {
-        const result: Recipe[] = []
-        for (const key in res) {
-          result.push({...res[key], key});
-        }
-        return result;
-      }));
+      .pipe(
+        map(res => {
+          const result: Recipe[] = []
+          for (const key in res) {
+            result.push({...res[key], key});
+          }
+          return result;
+        }),
+        catchError((errorRes: HttpErrorResponse) => {
+          // do some additional work with the error, eg. send to some analytics tool
+          return throwError(errorRes);
+        })
+      );
   }
 
   postRecipe(recipe: RawRecipe) {
