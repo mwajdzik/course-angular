@@ -1,15 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
-
-export interface RawRecipe {
-  name: string,
-  description: string
-}
-
-export interface Recipe extends RawRecipe {
-  key: string
-}
+import {RawRecipe, Recipe, RecipeService} from "./recipe.service";
 
 @Component({
   selector: 'app-root',
@@ -18,38 +8,36 @@ export interface Recipe extends RawRecipe {
 })
 export class AppComponent implements OnInit {
 
-  private url = 'https://amw061-recipes.firebaseio.com/recipes.json';
-
   recipes: Recipe[] = [];
+  isFetching: boolean;
 
-  constructor(private http: HttpClient) {
+  constructor(private recipeService: RecipeService) {
   }
 
   ngOnInit(): void {
   }
 
   onCreateRecipe(recipe: RawRecipe) {
-    this.http.post<{ name: string }>(this.url, recipe)
+    this.recipeService.postRecipe(recipe)
       .subscribe(res => {
         console.log(res.name);
       });
   }
 
   onFetchRecipes() {
-    this.http.get<{ [key: string]: RawRecipe }>(this.url)
-      .pipe(map(res => {
-        const result: Recipe[] = []
-        for (const key in res) {
-          result.push({...res[key], key});
-        }
-        return result;
-      }))
-      .subscribe(res => {
-        this.recipes = res;
+    this.isFetching = true;
+
+    this.recipeService.fetchRecipes()
+      .subscribe(recipes => {
+        this.recipes = recipes;
+        this.isFetching = false;
       });
   }
 
   onClearRecipes() {
-
+    this.recipeService.deleteRecipes()
+      .subscribe(() => {
+        this.recipes = [];
+      });
   }
 }
