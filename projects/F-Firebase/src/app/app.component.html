@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <form #postForm="ngForm" (ngSubmit)="onCreateRecipe(postForm.value)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name"
+                 required ngModel name="name"/>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description"
+                    required ngModel name="description">
+          </textarea>
+        </div>
+        <button class="btn btn-primary"
+                type="submit"
+                [disabled]="!postForm.valid">
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <button class="btn btn-primary" (click)="onFetchRecipes()">
+        Fetch
+      </button>
+      |
+      <button
+        class="btn btn-danger"
+        [disabled]="recipes.length < 1"
+        (click)="onClearRecipes()">
+        Clear
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <p *ngIf="recipes.length == 0">No recipes found</p>
+      <ul class="list-group" *ngIf="recipes.length > 0">
+        <li class="list-group-item" *ngFor="let recipe of recipes">
+          <h1>{{recipe.name}}</h1>
+          <p>{{recipe.description}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
