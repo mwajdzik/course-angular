@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RawRecipe, Recipe, RecipeService} from "./recipe.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
     this.message = '';
 
     this.recipeService.postRecipe(recipe)
-      .subscribe(res => {
-        console.log(res.name);
+      .subscribe((res: HttpResponse<{name: string}>) => {
+        console.log(res);
       }, (err: HttpErrorResponse) => {
         this.message = err.message;
       });

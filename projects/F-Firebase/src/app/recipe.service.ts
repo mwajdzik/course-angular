@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {catchError, map} from "rxjs/operators";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {catchError, map, tap} from "rxjs/operators";
+import {HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams} from "@angular/common/http";
 import {throwError} from "rxjs";
 
 @Injectable({
@@ -14,8 +14,15 @@ export class RecipeService {
   }
 
   fetchRecipes() {
+    const headers = new HttpHeaders({
+      'Custom-Header': 'hello'
+    });
+
+    const params = new HttpParams()
+      .set('print', 'pretty');
+
     return this.http
-      .get<{ [key: string]: RawRecipe }>(this.url)
+      .get<{ [key: string]: RawRecipe }>(this.url, {headers, params})
       .pipe(
         map(res => {
           const result: Recipe[] = []
@@ -31,14 +38,23 @@ export class RecipeService {
       );
   }
 
+  // observe - can be response, body, events
   postRecipe(recipe: RawRecipe) {
     return this.http
-      .post<{ name: string }>(this.url, recipe);
+      .post<{ name: string }>(this.url, recipe, {observe: 'response'});
   }
 
+  // responseType: json, arraybuffer, text, blob
   deleteRecipes() {
     return this.http
-      .delete(this.url);
+      .delete(this.url, {observe: 'events', responseType: 'json'})
+      .pipe(tap(event => {
+        if (event.type === HttpEventType.Response) {
+          console.log('Got a response!');
+        }
+
+        console.log(event);
+      }));
   }
 }
 
