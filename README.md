@@ -61,6 +61,9 @@ For example - adding @angular/material to the Angular based project.
 
 - Firebase
     - ng add @angular/fire
+    
+- Elements
+    - ng add @angular/elements
 
 
 ## Libraries 
@@ -84,7 +87,7 @@ For example - adding @angular/material to the Angular based project.
 
 
 ## [browserslist](https://github.com/browserslist/browserslist)
-Allows to prepare different files for different browser. Smaller code bundle for modern browsers.
+Allows preparing different files for different browser. Smaller code bundle for modern browsers.
 Check: Differential Loading
 
 
@@ -227,7 +230,8 @@ Remember about unsubscribing!
 
 
 ## Modules
-- allow to lazy load modules
+- allow to separate the coda and lazy load modules
+- modules DO NOT cummunicate with each other
 - options defined on route: NoPreloading, PreloadAllModules, or define own PreloadingStrategy
 - a shared module to keep common elements
 - CanLoad guard can be used to revoke access to a route and avoid loading unnecessary files
@@ -276,6 +280,12 @@ Remember about unsubscribing!
 - this.db.doc('ng-fitness_finished-exercises/' + id).update({lastUpdated: new Date()})
 
 ![alt text](./.images/firebase.jpg)
+
+
+## Service Worker
+
+- a proxy between the app and the server
+- can cache the responses/requests
 
 
 ## Libs:
