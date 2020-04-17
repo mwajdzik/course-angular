@@ -229,7 +229,7 @@ Remember about unsubscribing!
 ## Modules
 - allow to lazy load modules
 - options defined on route: NoPreloading, PreloadAllModules, or define own PreloadingStrategy
-- shared module to keep common elements
+- a shared module to keep common elements
 - CanLoad guard can be used to revoke access to a route and avoid loading unnecessary files
 
 
