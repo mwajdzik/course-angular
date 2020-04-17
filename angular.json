@@ -357,6 +357,123 @@
         }
       }
     },
+    "E-Elements": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/E-Elements",
+      "sourceRoot": "projects/E-Elements/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/E-Elements",
+            "index": "projects/E-Elements/src/index.html",
+            "main": "projects/E-Elements/src/main.ts",
+            "polyfills": "projects/E-Elements/src/polyfills.ts",
+            "tsConfig": "projects/E-Elements/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/E-Elements/src/favicon.ico",
+              "projects/E-Elements/src/assets"
+            ],
+            "styles": [
+              "projects/E-Elements/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/E-Elements/src/environments/environment.ts",
+                  "with": "projects/E-Elements/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "E-Elements:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "E-Elements:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "E-Elements:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/E-Elements/src/test.ts",
+            "polyfills": "projects/E-Elements/src/polyfills.ts",
+            "tsConfig": "projects/E-Elements/tsconfig.spec.json",
+            "karmaConfig": "projects/E-Elements/karma.conf.js",
+            "assets": [
+              "projects/E-Elements/src/favicon.ico",
+              "projects/E-Elements/src/assets"
+            ],
+            "styles": [
+              "projects/E-Elements/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/E-Elements/tsconfig.app.json",
+              "projects/E-Elements/tsconfig.spec.json",
+              "projects/E-Elements/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/E-Elements/e2e/protractor.conf.js",
+            "devServerTarget": "E-Elements:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "E-Elements:serve:production"
+            }
+          }
+        }
+      }
+    },
     "F-Firebase": {
       "projectType": "application",
       "schematics": {},
@@ -831,124 +948,7 @@
           }
         }
       }
-    },
-    "E-Elements": {
-      "projectType": "application",
-      "schematics": {},
-      "root": "projects/E-Elements",
-      "sourceRoot": "projects/E-Elements/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/E-Elements",
-            "index": "projects/E-Elements/src/index.html",
-            "main": "projects/E-Elements/src/main.ts",
-            "polyfills": "projects/E-Elements/src/polyfills.ts",
-            "tsConfig": "projects/E-Elements/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "projects/E-Elements/src/favicon.ico",
-              "projects/E-Elements/src/assets"
-            ],
-            "styles": [
-              "projects/E-Elements/src/styles.css"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/E-Elements/src/environments/environment.ts",
-                  "with": "projects/E-Elements/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "E-Elements:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "E-Elements:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "E-Elements:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/E-Elements/src/test.ts",
-            "polyfills": "projects/E-Elements/src/polyfills.ts",
-            "tsConfig": "projects/E-Elements/tsconfig.spec.json",
-            "karmaConfig": "projects/E-Elements/karma.conf.js",
-            "assets": [
-              "projects/E-Elements/src/favicon.ico",
-              "projects/E-Elements/src/assets"
-            ],
-            "styles": [
-              "projects/E-Elements/src/styles.css"
-            ],
-            "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/E-Elements/tsconfig.app.json",
-              "projects/E-Elements/tsconfig.spec.json",
-              "projects/E-Elements/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/E-Elements/e2e/protractor.conf.js",
-            "devServerTarget": "E-Elements:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "E-Elements:serve:production"
-            }
-          }
-        }
-      }
     }
   },
-  "defaultProject": "F-Firebase"
+  "defaultProject": "E-Elements"
 }
