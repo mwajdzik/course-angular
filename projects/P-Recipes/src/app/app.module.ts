@@ -17,6 +17,8 @@ import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.componen
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
+import {SigninComponent} from "./auth/signin/signin.component";
+import {SignupComponent} from "./auth/signup/signup.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {HttpClientModule} from "@angular/common/http";
     ShoppingListComponent,
     ShoppingEditComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
