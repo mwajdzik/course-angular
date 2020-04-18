@@ -15,7 +15,7 @@ export class DataStorageService {
   }
 
   private getRecipeUrl() {
-    return this.config.databaseURL + '/recipes.json'
+    return this.config.databaseUrl + '/recipes.json'
   }
 
   public storeRecipes() {

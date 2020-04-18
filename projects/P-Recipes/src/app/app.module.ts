@@ -19,6 +19,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {SigninComponent} from "./auth/signin/signin.component";
 import {SignupComponent} from "./auth/signup/signup.component";
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {SignupComponent} from "./auth/signup/signup.component";
     RecipeStartComponent,
     RecipeEditComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
