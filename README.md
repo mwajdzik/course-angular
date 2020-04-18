@@ -267,20 +267,7 @@ Remember about unsubscribing!
 
 
 ## Firebase
-- https://github.com/angular/angularfire2/blob/master/docs/install-and-setup.md
-- npm install angularfire2 firebase --save
-
-- Firestore is a document db (like mongoDB) - collections and documents
-
-- constructor(private db: AngularFirestore) {}
-- valueChanges returns import {Observable} from 'rxjs/Observable'; doesn't include id (key) 
-- this.db.collection('ng-fitness_available-exercises').valueChanges().subscribe((r) => {});
-
-- snapshotChanges returns import {Observable} from 'rxjs/Observable'; includes id (key)
-
-- this.db.collection('ng-fitness_finished-exercises').add(exercise)
-
-- this.db.doc('ng-fitness_finished-exercises/' + id).update({lastUpdated: new Date()})
+- https://firebase.google.com/docs/reference/rest/auth
 
 ![alt text](./.images/firebase.jpg)
 
