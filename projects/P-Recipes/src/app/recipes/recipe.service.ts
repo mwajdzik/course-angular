@@ -23,6 +23,10 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  public hasRecipes() {
+    return this.recipes.length > 0;
+  }
+
   public getRecipe(index: number) {
     return this.recipes[index];
   }
