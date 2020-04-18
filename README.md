@@ -64,6 +64,9 @@ For example - adding @angular/material to the Angular based project.
     
 - Elements
     - ng add @angular/elements
+    
+- PWA
+    - ng add @angular/pwa
 
 
 ## Libraries 
