@@ -289,7 +289,12 @@ Remember about unsubscribing!
 
 - a proxy between the app and the server
 - can cache the responses/requests
-
+- ng build --prod and check ngsw-worker.js
+- npm install -g http-server
+- go to the dist folder and run a http server: http-server
+- DevTools / Application / Service Worker
+- go offline and reload
+- ngsw-config.json allows defining resources that should be cached (static content, external URLs, data) 
 
 ## Libs:
 - (!!!) https://github.com/brillout/awesome-angular-components
