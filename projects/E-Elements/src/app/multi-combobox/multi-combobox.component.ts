@@ -14,7 +14,6 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'ro-multi-combobox',
   template: `
     <div [ngClass]="dropdownClass">
       <input type='text' #inputRef

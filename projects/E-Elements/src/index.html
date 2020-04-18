@@ -34,6 +34,10 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam blanditiis cum eos error eveniet ex explicabo
       fugit ipsa ipsum labore magnam maiores necessitatibus nobis numquam optio quidem, recusandae sit voluptate.</p>
   </div>
+  <div id="dynamicallyCreated" style="width: 300px; height: 40px;">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam blanditiis cum eos error eveniet ex explicabo
+      fugit ipsa ipsum labore magnam maiores necessitatibus nobis numquam optio quidem, recusandae sit voluptate.</p>
+  </div>
 </div>
 
 <div style="margin-top: 300px;">
@@ -70,6 +74,11 @@
     replaceItems.addEventListener('click', (event) => {
       cb1.items = ['ZZA', 'ZZB', 'ZZP', 'ZZR', 'ZZZ'];
     });
+
+    const dynamicallyCreated = document.createElement('ro-multi-combobox');
+    document.getElementById('dynamicallyCreated').prepend(dynamicallyCreated);
+    dynamicallyCreated.items = ['AAB', 'AAR', 'AAV', 'AAX', 'AAY'];
+    dynamicallyCreated.required = true;
   }, 1000);
 </script>
 </body>
