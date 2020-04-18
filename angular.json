@@ -730,7 +730,8 @@
             "aot": true,
             "assets": [
               "projects/N-PWA/src/favicon.ico",
-              "projects/N-PWA/src/assets"
+              "projects/N-PWA/src/assets",
+              "projects/N-PWA/src/manifest.webmanifest"
             ],
             "styles": [
               "projects/N-PWA/src/styles.css"
@@ -764,7 +765,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "projects/N-PWA/ngsw-config.json"
             }
           }
         },
@@ -794,7 +797,8 @@
             "karmaConfig": "projects/N-PWA/karma.conf.js",
             "assets": [
               "projects/N-PWA/src/favicon.ico",
-              "projects/N-PWA/src/assets"
+              "projects/N-PWA/src/assets",
+              "projects/N-PWA/src/manifest.webmanifest"
             ],
             "styles": [
               "projects/N-PWA/src/styles.css"
