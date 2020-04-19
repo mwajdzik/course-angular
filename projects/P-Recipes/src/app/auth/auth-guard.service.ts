@@ -21,7 +21,7 @@ export class AuthGuardService implements CanActivate {
           return true;
         }
 
-        return this.route.createUrlTree(['/signin']);
+        return this.route.createUrlTree(['/auth', 'signin']);
       }));
   }
 }

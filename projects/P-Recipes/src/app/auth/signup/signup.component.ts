@@ -25,7 +25,7 @@ export class SignupComponent {
 
     this.authService.signUpUser(email, password).subscribe(res => {
       this.isLoading = false;
-      this.route.navigate(['/signin']);
+      this.route.navigate(['/auth', 'signin']);
     }, error => {
       this.isLoading = false;
       this.error = error;

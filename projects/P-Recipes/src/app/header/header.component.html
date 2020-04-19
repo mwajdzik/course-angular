@@ -6,8 +6,8 @@
 
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li><a routerLink="/signin" routerLinkActive="active" *ngIf="!isAuthenticated">Sign In</a></li>
-        <li><a routerLink="/signup" routerLinkActive="active" *ngIf="!isAuthenticated">Sign Up</a></li>
+        <li><a routerLink="/auth/signin" routerLinkActive="active" *ngIf="!isAuthenticated">Sign In</a></li>
+        <li><a routerLink="/auth/signup" routerLinkActive="active" *ngIf="!isAuthenticated">Sign Up</a></li>
         <li><a routerLink="/recipes" routerLinkActive="active" *ngIf="isAuthenticated">Recipes</a></li>
         <li><a routerLink="/shopping-list" routerLinkActive="active" *ngIf="isAuthenticated">Shopping List</a></li>
       </ul>
