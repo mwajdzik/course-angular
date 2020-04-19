@@ -224,6 +224,11 @@ Remember about unsubscribing!
 - https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine
 
 
+## JiT vs AoT compilation
+- JiT - when the code is loaded in a browser the Angular compiler translates Angular syntax (eg. *ngIf) to JS DOM instructions - dev mode
+- AoT - the Angular template compiler runs during build process (before the app is deployed) - prod mode
+
+
 ## Deployment
 - ng build --prod --aot 
 - check environments folder
@@ -267,8 +272,9 @@ Remember about unsubscribing!
 
 
 ## Firebase
-- https://console.firebase.google.com
-- https://firebase.google.com/docs/reference/rest/auth
+- Console:  https://console.firebase.google.com
+- Auth:     https://firebase.google.com/docs/reference/rest/auth
+- Hosting:  https://firebase.google.com/docs/cli
 
 ![alt text](./.images/firebase.jpg)
 
@@ -283,6 +289,7 @@ Remember about unsubscribing!
 - DevTools / Application / Service Worker
 - go offline and reload
 - ngsw-config.json allows defining resources that should be cached (static content, external URLs, data) 
+
 
 ## Libs:
 - (!!!) https://github.com/brillout/awesome-angular-components
