@@ -1,0 +1,16 @@
+.img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+.form-control.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.btn {
+  margin-right: 0.5em;
+}

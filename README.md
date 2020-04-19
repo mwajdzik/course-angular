@@ -79,7 +79,8 @@ For example - adding @angular/material to the Angular based project.
 
 - Lodash
     - npm install --save lodash
-    - import * as _ from 'lodash'; 
+    - import * as _ from 'lodash';
+    - declare var _: any;  
     
 - Moment
     - npm install --save moment @angular/material-moment-adapter

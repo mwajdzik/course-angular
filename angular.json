@@ -1069,7 +1069,126 @@
           }
         }
       }
+    },
+    "P-Recipes-NgRx": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/P-Recipes-NgRx",
+      "sourceRoot": "projects/P-Recipes-NgRx/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/P-Recipes-NgRx",
+            "index": "projects/P-Recipes-NgRx/src/index.html",
+            "main": "projects/P-Recipes-NgRx/src/main.ts",
+            "polyfills": "projects/P-Recipes-NgRx/src/polyfills.ts",
+            "tsConfig": "projects/P-Recipes-NgRx/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/P-Recipes-NgRx/src/favicon.ico",
+              "projects/P-Recipes-NgRx/src/assets"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "projects/P-Recipes-NgRx/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/P-Recipes-NgRx/src/environments/environment.ts",
+                  "with": "projects/P-Recipes-NgRx/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "P-Recipes-NgRx:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "P-Recipes-NgRx:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "P-Recipes-NgRx:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/P-Recipes-NgRx/src/test.ts",
+            "polyfills": "projects/P-Recipes-NgRx/src/polyfills.ts",
+            "tsConfig": "projects/P-Recipes-NgRx/tsconfig.spec.json",
+            "karmaConfig": "projects/P-Recipes-NgRx/karma.conf.js",
+            "assets": [
+              "projects/P-Recipes-NgRx/src/favicon.ico",
+              "projects/P-Recipes-NgRx/src/assets"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "projects/P-Recipes-NgRx/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/P-Recipes-NgRx/tsconfig.app.json",
+              "projects/P-Recipes-NgRx/tsconfig.spec.json",
+              "projects/P-Recipes-NgRx/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/P-Recipes-NgRx/e2e/protractor.conf.js",
+            "devServerTarget": "P-Recipes-NgRx:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "P-Recipes-NgRx:serve:production"
+            }
+          }
+        }
+      }
     }
   },
-  "defaultProject": "P-Recipes"
+  "defaultProject": "P-Recipes-NgRx"
 }
