@@ -8,6 +8,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import {HomeComponent} from './home/home.component';
 import {SharedModule} from "./shared/shared.module";
+import {StoreModule} from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import {SharedModule} from "./shared/shared.module";
     // Angular
     BrowserModule,
     HttpClientModule,
+    // NgRx
+    StoreModule.forRoot({}, {}),
     // App Modules
     SharedModule,
     // App Routing
