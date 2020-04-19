@@ -44,7 +44,7 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <div class="img">
+          <div class="img" *ngIf="imageUrl.value">
             <img [src]="imageUrl.value" alt="Image">
           </div>
         </div>
