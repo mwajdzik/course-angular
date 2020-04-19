@@ -5,11 +5,14 @@
       <p>{{error}}</p>
     </div>
 
+    <app-alert [message]="error" *ngIf="error" (close)="error = null;">
+    </app-alert>
+
     <div *ngIf="isLoading">
       <app-loading-spinner></app-loading-spinner>
     </div>
 
-    <form (ngSubmit)="onSignUp(f)" #f="ngForm"  *ngIf="!isLoading">
+    <form (ngSubmit)="onSignUp(f)" #f="ngForm" *ngIf="!isLoading">
       <div class="form-group">
         <label for="email">eMail</label>
         <input type="email"

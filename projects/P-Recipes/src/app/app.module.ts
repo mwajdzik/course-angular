@@ -22,6 +22,7 @@ import {SignupComponent} from "./auth/signup/signup.component";
 import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
 import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import { HomeComponent } from './home/home.component';
+import { AlertComponent } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HomeComponent } from './home/home.component';
     SigninComponent,
     SignupComponent,
     LoadingSpinnerComponent,
-    HomeComponent
+    HomeComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
