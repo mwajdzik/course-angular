@@ -21,9 +21,7 @@ export class DataStorageService {
   public storeRecipes() {
     return this.httpClient
       .put(this.getRecipeUrl(), this.recipeService.getRecipes())
-      .subscribe(() => {
-        console.log('Recipes stored');
-      })
+      .subscribe()
   }
 
   public getRecipes() {

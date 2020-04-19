@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {catchError, tap} from "rxjs/operators";
-import {Subject, throwError} from "rxjs";
+import {BehaviorSubject, throwError} from "rxjs";
 import {User} from "./User.model";
+import {Router} from "@angular/router";
 
 interface AuthResponseData {
   kind: string,
@@ -18,19 +19,20 @@ interface AuthResponseData {
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-  public user: Subject<User> = new Subject<User>();
+  public user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private route: Router) {
   }
 
   signUpUser(email: string, password: string) {
-    const payload = {email, password, returnSecurityToken: true};
+    const payload = {email, password, returnSecureToken: true};
     return this.http.post<AuthResponseData>(environment.firebase.signUpUrl, payload)
       .pipe(catchError(AuthService.handleError));
   }
 
   signInUser(email: string, password: string) {
-    const payload = {email, password, returnSecurityToken: true};
+    const payload = {email, password, returnSecureToken: true};
     return this.http.post<AuthResponseData>(environment.firebase.signInUrl, payload)
       .pipe(
         tap(res => {
@@ -55,5 +57,7 @@ export class AuthService {
   }
 
   signOutUser() {
+    this.user.next(null);
+    this.route.navigate(['/signin'])
   }
 }

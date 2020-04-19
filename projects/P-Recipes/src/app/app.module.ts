@@ -16,10 +16,12 @@ import {AppRoutingModule} from "./app-routing.module";
 import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
 import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SigninComponent} from "./auth/signin/signin.component";
 import {SignupComponent} from "./auth/signup/signup.component";
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
+import {AuthInterceptorService} from "./auth/auth-interceptor.service";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     RecipeEditComponent,
     SigninComponent,
     SignupComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     BrowserAnimationsModule
   ],
   providers: [
-    ShoppingListService
+    ShoppingListService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
   ],
   bootstrap: [
     AppComponent

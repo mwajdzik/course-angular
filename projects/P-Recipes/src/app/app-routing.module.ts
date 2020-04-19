@@ -8,11 +8,11 @@ import {RecipeEditComponent} from "./recipes/recipe-edit/recipe-edit.component";
 import {RecipesResolverService} from "./recipes/recipes-resolver.service";
 import {SignupComponent} from "./auth/signup/signup.component";
 import {SigninComponent} from "./auth/signin/signin.component";
+import {HomeComponent} from "./home/home.component";
 
 const appRoutes: Routes = [
-  {
-    path: '', redirectTo: '/recipes', pathMatch: 'full'
-  },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {
     path: 'recipes', component: RecipesComponent, children: [
       {path: '', component: RecipeStartComponent},
