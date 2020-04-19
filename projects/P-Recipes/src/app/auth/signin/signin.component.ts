@@ -23,7 +23,7 @@ export class SigninComponent {
 
     this.isLoading = true;
 
-    this.authService.signInUser(email, password).subscribe(res => {
+    this.authService.logInUser(email, password).subscribe(res => {
       this.isLoading = false;
       this.route.navigate(['/']);
     }, error => {
