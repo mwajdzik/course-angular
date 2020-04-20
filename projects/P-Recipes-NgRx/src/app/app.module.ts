@@ -9,6 +9,7 @@ import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import {HomeComponent} from './home/home.component';
 import {SharedModule} from "./shared/shared.module";
 import {StoreModule} from '@ngrx/store';
+import {shoppingListReducer} from "./shopping-list/store/shopping-list.reducer";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import {StoreModule} from '@ngrx/store';
     BrowserModule,
     HttpClientModule,
     // NgRx
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({shoppingList: shoppingListReducer}, {}),
     // App Modules
     SharedModule,
     // App Routing
