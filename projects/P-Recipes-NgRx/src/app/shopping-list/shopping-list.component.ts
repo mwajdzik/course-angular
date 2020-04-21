@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {AppState, ShoppingListState} from "./store/shopping-list.reducer";
+import {ShoppingListState} from "./store/shopping-list.reducer";
 import {StartEditIngredient} from "./store/shopping-list.actions";
+import {AppState} from "../store/app.reducer";
 
 @Component({
   selector: 'app-shopping-list',

@@ -70,6 +70,7 @@ For example - adding @angular/material to the Angular based project.
     
 - NgRx
     - ng add @ngrx/store
+    - ng add @ngrx/effects
 
 
 ## Libraries 
@@ -257,18 +258,13 @@ Remember about unsubscribing!
 
 
 ## Redux - ngRx library for Angular that provides Redux functionality
-- npm install --save @ngrx/store
-- npm install --save @ngrx/effects
-- npm install --save @ngrx/router-store
-- npm install --save @ngrx/store-devtools  + Chrome Redux DevTools extension
 - Store keeps the Application State
 - Services and Components have access to the Store, they can still communicate with each other
 - to modify the state we dispatch Actions (eg. save a post)
 - Actions are sent to Reducers are functions which take Actions and payload as input and prepare a new immutable state
-- effects don't change the state of the app
+- effects don't change the state of the app - they are additional operation that should happen
 - switchMap don't wrap with Observable
-- https://blog.nrwl.io/using-ngrx-4-to-manage-state-in-angular-applications-64e7a1f84b7b
-- https://blog.nrwl.io/ngrx-patterns-and-techniques-f46126e2b1e5
+
 
 ![alt text](./.images/redux.jpg)
 
