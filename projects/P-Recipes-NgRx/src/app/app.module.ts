@@ -11,6 +11,7 @@ import {SharedModule} from "./shared/shared.module";
 import {StoreModule} from '@ngrx/store';
 import {appReducer} from "./store/app.reducer";
 import {EffectsModule} from '@ngrx/effects';
+import {AuthEffects} from "./auth/store/auth.effects";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import {EffectsModule} from '@ngrx/effects';
     HttpClientModule,
     // NgRx
     StoreModule.forRoot(appReducer, {}),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     // App Modules
     SharedModule,
     // App Routing
