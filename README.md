@@ -71,6 +71,8 @@ For example - adding @angular/material to the Angular based project.
 - NgRx
     - ng add @ngrx/store
     - ng add @ngrx/effects
+    - ng add @ngrx/store-devtools
+    - ng add @ngrx/router-store
 
 
 ## Libraries 
