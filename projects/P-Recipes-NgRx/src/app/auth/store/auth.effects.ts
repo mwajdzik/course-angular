@@ -60,7 +60,7 @@ export class AuthEffects {
 
         if (user.token) {
           this.authService.setLogoutTimer(expirationDuration);
-          return new AuthSuccess(user);
+          return new AuthSuccess(user, false);
         }
       }
 
@@ -71,8 +71,10 @@ export class AuthEffects {
   @Effect({dispatch: false})
   authRedirect = this.actions.pipe(
     ofType(AuthActions.AUTH_SUCCESS, AuthActions.LOGOUT),
-    tap(() => {
-      this.route.navigate(['/']);
+    tap((authAction: AuthSuccess) => {
+      if (authAction.redirect) {
+        this.route.navigate(['/']);
+      }
     })
   );
 
@@ -104,7 +106,7 @@ const handleAuthentication = (resData) => {
   const expirationDate = new Date(new Date().getTime() + expirationDuration);
   const user = new User(resData.email, resData.localId, resData.idToken, expirationDate);
   localStorage.setItem('userData', JSON.stringify(user));
-  return new AuthSuccess(user);
+  return new AuthSuccess(user, true);
 }
 
 const handleError = (errorRes: HttpErrorResponse) => {

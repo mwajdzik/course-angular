@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {DataStorageService} from "../shared/data-storage.service";
 import {Subscription} from "rxjs";
 import {Store} from "@ngrx/store";
 import {AppState} from "../store/app.reducer";
 import {LogOut} from "../auth/store/auth.actions";
+import {FetchRecipes, StoreRecipes} from "../recipes/store/recipe.actions";
 
 @Component({
   selector: 'app-header',
@@ -15,8 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public isAuthenticated = false;
   private userSubs: Subscription;
 
-  constructor(private dataStorageService: DataStorageService,
-              private store: Store<AppState>) {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
@@ -30,12 +29,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onSaveData() {
-    this.dataStorageService.storeRecipes();
+    this.store.dispatch(new StoreRecipes());
   }
 
   onFetchData() {
-    this.dataStorageService.getRecipes()
-      .subscribe();
+    this.store.dispatch(new FetchRecipes());
   }
 
   onLogOut() {

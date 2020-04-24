@@ -13,7 +13,7 @@ export const UNAUTHORIZED = '[Auth] Unauthorized';
 export class AuthSuccess implements Action {
   readonly type = AUTH_SUCCESS;
 
-  constructor(public user: User) {
+  constructor(public user: User, public redirect: boolean) {
   }
 }
 
